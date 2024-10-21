@@ -1,0 +1,26 @@
+{
+	"name": "@labdigital/bluestonepim-sdk",
+	"version": "1.0.0",
+	"private": true,
+	"description": "",
+	"keywords": [],
+	"license": "UNLICENSED",
+	"author": "",
+	"type": "module",
+	"main": "src/index.ts",
+	"types": "src/index.ts",
+	"scripts": {
+		"lint": "biome check && eslint . --ext .ts,.js",
+		"lint:fix": "eslint . --ext .ts,.js --fix",
+		"sdk:generate": "openapi-generator-cli generate -i https://docs.api.bluestonepim.com/openapi/665580c80a124b001f16a96c -g typescript-fetch -o src/sdk --additional-properties=prefixParameterInterfaces=true && pnpm lint:fix && pnpm format:fix",
+		"test": "vitest run --passWithNoTests",
+		"test:ci": "vitest run --coverage --passWithNoTests",
+		"tsc": "tsc"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@openapitools/openapi-generator-cli": "2.13.4",
+		"vite-tsconfig-paths": "5.0.1",
+		"vitest": "2.0.5"
+	}
+}
