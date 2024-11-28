@@ -27,7 +27,7 @@
     }
   },
   "scripts": {
-    "build": "tsup --env.PACKAGE_VERSION $(jq -r '.version' package.json)",
+    "build": "tsup",
     "check": "pnpm lint",
     "format": "eslint src --fix && prettier --write .",
     "lint": "eslint src && prettier --check .",
