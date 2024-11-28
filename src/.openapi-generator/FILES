@@ -8,9 +8,11 @@ apis/RelationsApi.ts
 apis/SyncsApi.ts
 apis/index.ts
 index.ts
+models/AssetAttribute.ts
 models/Attribute.ts
 models/AttributeFilter.ts
 models/Category.ts
+models/CategoryMediaAsset.ts
 models/ColumnAttribute.ts
 models/ColumnAttributeDefinitionValue.ts
 models/CompoundAttributeSubDefinition.ts
@@ -25,7 +27,6 @@ models/FilteringCriteriaRequest.ts
 models/GroupedAttributeDefinition.ts
 models/MatrixAttributeColumn.ts
 models/MatrixAttributeRow.ts
-models/MediaAsset.ts
 models/MetaData.ts
 models/PaginatedAttribute.ts
 models/PaginatedCategory.ts
@@ -34,6 +35,7 @@ models/PaginatedSimplifiedCategory.ts
 models/PapiError.ts
 models/Product.ts
 models/ProductBundle.ts
+models/ProductMediaAsset.ts
 models/ProductRelation.ts
 models/ProductResults.ts
 models/ProductType.ts
@@ -49,6 +51,5 @@ models/SegmentContextRequest.ts
 models/SelectValue.ts
 models/SimplifiedCategory.ts
 models/StatusPapiError.ts
-models/ValueAttributeDefinitionValue.ts
 models/index.ts
 runtime.ts

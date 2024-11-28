@@ -1,8 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from "./AssetAttribute";
 export * from "./Attribute";
 export * from "./AttributeFilter";
 export * from "./Category";
+export * from "./CategoryMediaAsset";
 export * from "./ColumnAttribute";
 export * from "./ColumnAttributeDefinitionValue";
 export * from "./CompoundAttributeSubDefinition";
@@ -17,7 +19,6 @@ export * from "./FilteringCriteriaRequest";
 export * from "./GroupedAttributeDefinition";
 export * from "./MatrixAttributeColumn";
 export * from "./MatrixAttributeRow";
-export * from "./MediaAsset";
 export * from "./MetaData";
 export * from "./PaginatedAttribute";
 export * from "./PaginatedCategory";
@@ -26,6 +27,7 @@ export * from "./PaginatedSimplifiedCategory";
 export * from "./PapiError";
 export * from "./Product";
 export * from "./ProductBundle";
+export * from "./ProductMediaAsset";
 export * from "./ProductRelation";
 export * from "./ProductResults";
 export * from "./ProductType";
@@ -41,4 +43,3 @@ export * from "./SegmentContextRequest";
 export * from "./SelectValue";
 export * from "./SimplifiedCategory";
 export * from "./StatusPapiError";
-export * from "./ValueAttributeDefinitionValue";

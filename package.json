@@ -1,26 +1,51 @@
 {
-	"name": "@labdigital/bluestonepim-sdk",
-	"version": "1.0.0",
-	"private": true,
-	"description": "",
-	"keywords": [],
-	"license": "UNLICENSED",
-	"author": "",
-	"type": "module",
-	"main": "src/index.ts",
-	"types": "src/index.ts",
-	"scripts": {
-		"lint": "biome check && eslint . --ext .ts,.js",
-		"lint:fix": "eslint . --ext .ts,.js --fix",
-		"sdk:generate": "openapi-generator-cli generate -i https://docs.api.bluestonepim.com/openapi/665580c80a124b001f16a96c -g typescript-fetch -o src/sdk --additional-properties=prefixParameterInterfaces=true && pnpm lint:fix && pnpm format:fix",
-		"test": "vitest run --passWithNoTests",
-		"test:ci": "vitest run --coverage --passWithNoTests",
-		"tsc": "tsc"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@openapitools/openapi-generator-cli": "2.13.4",
-		"vite-tsconfig-paths": "5.0.1",
-		"vitest": "2.0.5"
-	}
+  "name": "@labdigital/bluestonepim-sdk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bluestone PIM SDK",
+  "keywords": [
+    "sdk",
+    "bluestone",
+    "bluestonepim",
+    "pim"
+  ],
+  "license": "MIT",
+  "author": "Lab Digital <opensource@labdigital.nl>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/labd/bluestonepim-node-sdk"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup --env.PACKAGE_VERSION $(jq -r '.version' package.json)",
+    "check": "pnpm lint",
+    "format": "eslint src --fix && prettier --write .",
+    "lint": "eslint src && prettier --check .",
+    "sdk:generate": "openapi-generator-cli generate -i https://docs.api.bluestonepim.com/openapi/665580c80a124b001f16a96c -g typescript-fetch -o src/ --additional-properties=prefixParameterInterfaces=true && pnpm format"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@openapitools/openapi-generator-cli": "2.13.4",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vitest/coverage-v8": "^2.1.6",
+    "eslint": "^8.57.0",
+    "eslint-plugin-sort-class-members": "^1.20.0",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-packagejson": "^2.4.12",
+    "tsup": "^7.1.0",
+    "vite-tsconfig-paths": "5.0.1",
+    "vitest": "2.0.5"
+  }
 }

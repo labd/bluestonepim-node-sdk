@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from "../runtime";
-import type { ColumnAttribute } from "./ColumnAttribute";
-import {
-  ColumnAttributeFromJSON,
-  ColumnAttributeFromJSONTyped,
-  ColumnAttributeToJSON,
-  ColumnAttributeToJSONTyped,
-} from "./ColumnAttribute";
 import type { DictionaryValue } from "./DictionaryValue";
 import {
   DictionaryValueFromJSON,
@@ -27,13 +20,6 @@ import {
   DictionaryValueToJSON,
   DictionaryValueToJSONTyped,
 } from "./DictionaryValue";
-import type { MatrixAttributeColumn } from "./MatrixAttributeColumn";
-import {
-  MatrixAttributeColumnFromJSON,
-  MatrixAttributeColumnFromJSONTyped,
-  MatrixAttributeColumnToJSON,
-  MatrixAttributeColumnToJSONTyped,
-} from "./MatrixAttributeColumn";
 import type { SelectValue } from "./SelectValue";
 import {
   SelectValueFromJSON,
@@ -45,118 +31,102 @@ import {
 /**
  *
  * @export
- * @interface Attribute
+ * @interface AssetAttribute
  */
-export interface Attribute {
+export interface AssetAttribute {
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   id: string;
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   name?: string;
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   number?: string;
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   unit?: string;
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   groupName?: string;
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   groupNumber?: string;
   /**
    *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   dataType?: string;
   /**
    *
-   * @type {boolean}
-   * @memberof Attribute
-   */
-  isCompound?: boolean;
-  /**
-   *
    * @type {string}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   valueType?: string;
   /**
    *
    * @type {boolean}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   definingAttribute?: boolean;
   /**
    *
    * @type {Array<string>}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   values: Array<string>;
   /**
    *
    * @type {Array<SelectValue>}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   select?: Array<SelectValue>;
   /**
    *
-   * @type {Array<ColumnAttribute>}
-   * @memberof Attribute
-   */
-  column?: Array<ColumnAttribute>;
-  /**
-   *
-   * @type {Array<MatrixAttributeColumn>}
-   * @memberof Attribute
-   */
-  matrix?: Array<MatrixAttributeColumn>;
-  /**
-   *
    * @type {Array<DictionaryValue>}
-   * @memberof Attribute
+   * @memberof AssetAttribute
    */
   dictionary?: Array<DictionaryValue>;
 }
 
 /**
- * Check if a given object implements the Attribute interface.
+ * Check if a given object implements the AssetAttribute interface.
  */
-export function instanceOfAttribute(value: object): value is Attribute {
+export function instanceOfAssetAttribute(
+  value: object
+): value is AssetAttribute {
   if (!("id" in value) || value["id"] === undefined) return false;
   if (!("values" in value) || value["values"] === undefined) return false;
   return true;
 }
 
-export function AttributeFromJSON(json: any): Attribute {
-  return AttributeFromJSONTyped(json, false);
+export function AssetAttributeFromJSON(json: any): AssetAttribute {
+  return AssetAttributeFromJSONTyped(json, false);
 }
 
-export function AttributeFromJSONTyped(
+export function AssetAttributeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): Attribute {
+): AssetAttribute {
   if (json == null) {
     return json;
   }
@@ -168,7 +138,6 @@ export function AttributeFromJSONTyped(
     groupName: json["groupName"] == null ? undefined : json["groupName"],
     groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
     dataType: json["dataType"] == null ? undefined : json["dataType"],
-    isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
     valueType: json["valueType"] == null ? undefined : json["valueType"],
     definingAttribute:
       json["definingAttribute"] == null ? undefined : json["definingAttribute"],
@@ -177,14 +146,6 @@ export function AttributeFromJSONTyped(
       json["select"] == null
         ? undefined
         : (json["select"] as Array<any>).map(SelectValueFromJSON),
-    column:
-      json["column"] == null
-        ? undefined
-        : (json["column"] as Array<any>).map(ColumnAttributeFromJSON),
-    matrix:
-      json["matrix"] == null
-        ? undefined
-        : (json["matrix"] as Array<any>).map(MatrixAttributeColumnFromJSON),
     dictionary:
       json["dictionary"] == null
         ? undefined
@@ -192,12 +153,12 @@ export function AttributeFromJSONTyped(
   };
 }
 
-export function AttributeToJSON(json: any): Attribute {
-  return AttributeToJSONTyped(json, false);
+export function AssetAttributeToJSON(json: any): AssetAttribute {
+  return AssetAttributeToJSONTyped(json, false);
 }
 
-export function AttributeToJSONTyped(
-  value?: Attribute | null,
+export function AssetAttributeToJSONTyped(
+  value?: AssetAttribute | null,
   ignoreDiscriminator: boolean = false
 ): any {
   if (value == null) {
@@ -212,7 +173,6 @@ export function AttributeToJSONTyped(
     groupName: value["groupName"],
     groupNumber: value["groupNumber"],
     dataType: value["dataType"],
-    isCompound: value["isCompound"],
     valueType: value["valueType"],
     definingAttribute: value["definingAttribute"],
     values: value["values"],
@@ -220,14 +180,6 @@ export function AttributeToJSONTyped(
       value["select"] == null
         ? undefined
         : (value["select"] as Array<any>).map(SelectValueToJSON),
-    column:
-      value["column"] == null
-        ? undefined
-        : (value["column"] as Array<any>).map(ColumnAttributeToJSON),
-    matrix:
-      value["matrix"] == null
-        ? undefined
-        : (value["matrix"] as Array<any>).map(MatrixAttributeColumnToJSON),
     dictionary:
       value["dictionary"] == null
         ? undefined
