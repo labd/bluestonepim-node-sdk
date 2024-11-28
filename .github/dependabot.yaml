@@ -3,8 +3,22 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      patch:
+        applies-to: version-updates
+        update-types:
+          - patch
+          - minor
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      patch:
+        applies-to: version-updates
+        update-types:
+          - patch
+          - minor
