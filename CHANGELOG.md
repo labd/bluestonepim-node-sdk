@@ -1,5 +1,11 @@
 # @labdigital/bluestonepim-sdk
 
+## 0.0.4
+
+### Patch Changes
+
+- d9d04fc: Added files for package.json
+
 ## 0.0.3
 
 ### Patch Changes
