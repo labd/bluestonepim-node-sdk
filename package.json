@@ -1,7 +1,6 @@
 {
   "name": "@labdigital/bluestonepim-sdk",
-  "version": "1.0.1",
-  "private": true,
+  "version": "0.0.1",
   "description": "Bluestone PIM SDK",
   "keywords": [
     "sdk",
