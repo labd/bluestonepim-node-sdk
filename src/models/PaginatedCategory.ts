@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { Category } from "./Category";
 import {
-  CategoryFromJSON,
-  CategoryFromJSONTyped,
-  CategoryToJSON,
-  CategoryToJSONTyped,
+	CategoryFromJSON,
+	CategoryFromJSONTyped,
+	CategoryToJSON,
+	CategoryToJSONTyped,
 } from "./Category";
 
 /**
@@ -27,63 +27,63 @@ import {
  * @interface PaginatedCategory
  */
 export interface PaginatedCategory {
-  /**
-   *
-   * @type {number}
-   * @memberof PaginatedCategory
-   */
-  totalCount: number;
-  /**
-   *
-   * @type {Array<Category>}
-   * @memberof PaginatedCategory
-   */
-  results: Array<Category>;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PaginatedCategory
+	 */
+	totalCount: number;
+	/**
+	 *
+	 * @type {Array<Category>}
+	 * @memberof PaginatedCategory
+	 */
+	results: Array<Category>;
 }
 
 /**
  * Check if a given object implements the PaginatedCategory interface.
  */
 export function instanceOfPaginatedCategory(
-  value: object
+	value: object,
 ): value is PaginatedCategory {
-  if (!("totalCount" in value) || value["totalCount"] === undefined)
-    return false;
-  if (!("results" in value) || value["results"] === undefined) return false;
-  return true;
+	if (!("totalCount" in value) || value["totalCount"] === undefined)
+		return false;
+	if (!("results" in value) || value["results"] === undefined) return false;
+	return true;
 }
 
 export function PaginatedCategoryFromJSON(json: any): PaginatedCategory {
-  return PaginatedCategoryFromJSONTyped(json, false);
+	return PaginatedCategoryFromJSONTyped(json, false);
 }
 
 export function PaginatedCategoryFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PaginatedCategory {
-  if (json == null) {
-    return json;
-  }
-  return {
-    totalCount: json["totalCount"],
-    results: (json["results"] as Array<any>).map(CategoryFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		totalCount: json["totalCount"],
+		results: (json["results"] as Array<any>).map(CategoryFromJSON),
+	};
 }
 
 export function PaginatedCategoryToJSON(json: any): PaginatedCategory {
-  return PaginatedCategoryToJSONTyped(json, false);
+	return PaginatedCategoryToJSONTyped(json, false);
 }
 
 export function PaginatedCategoryToJSONTyped(
-  value?: PaginatedCategory | null,
-  ignoreDiscriminator: boolean = false
+	value?: PaginatedCategory | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    totalCount: value["totalCount"],
-    results: (value["results"] as Array<any>).map(CategoryToJSON),
-  };
+	return {
+		totalCount: value["totalCount"],
+		results: (value["results"] as Array<any>).map(CategoryToJSON),
+	};
 }

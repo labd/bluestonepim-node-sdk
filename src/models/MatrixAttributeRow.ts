@@ -19,69 +19,69 @@ import { mapValues } from "../runtime";
  * @interface MatrixAttributeRow
  */
 export interface MatrixAttributeRow {
-  /**
-   *
-   * @type {string}
-   * @memberof MatrixAttributeRow
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof MatrixAttributeRow
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof MatrixAttributeRow
-   */
-  value?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof MatrixAttributeRow
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof MatrixAttributeRow
+	 */
+	name?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof MatrixAttributeRow
+	 */
+	value?: string;
 }
 
 /**
  * Check if a given object implements the MatrixAttributeRow interface.
  */
 export function instanceOfMatrixAttributeRow(
-  value: object
+	value: object,
 ): value is MatrixAttributeRow {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	return true;
 }
 
 export function MatrixAttributeRowFromJSON(json: any): MatrixAttributeRow {
-  return MatrixAttributeRowFromJSONTyped(json, false);
+	return MatrixAttributeRowFromJSONTyped(json, false);
 }
 
 export function MatrixAttributeRowFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): MatrixAttributeRow {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"] == null ? undefined : json["name"],
-    value: json["value"] == null ? undefined : json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"] == null ? undefined : json["name"],
+		value: json["value"] == null ? undefined : json["value"],
+	};
 }
 
 export function MatrixAttributeRowToJSON(json: any): MatrixAttributeRow {
-  return MatrixAttributeRowToJSONTyped(json, false);
+	return MatrixAttributeRowToJSONTyped(json, false);
 }
 
 export function MatrixAttributeRowToJSONTyped(
-  value?: MatrixAttributeRow | null,
-  ignoreDiscriminator: boolean = false
+	value?: MatrixAttributeRow | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    value: value["value"],
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		value: value["value"],
+	};
 }

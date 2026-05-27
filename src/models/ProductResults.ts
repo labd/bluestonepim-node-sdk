@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { Product } from "./Product";
 import {
-  ProductFromJSON,
-  ProductFromJSONTyped,
-  ProductToJSON,
-  ProductToJSONTyped,
+	ProductFromJSON,
+	ProductFromJSONTyped,
+	ProductToJSON,
+	ProductToJSONTyped,
 } from "./Product";
 
 /**
@@ -27,53 +27,53 @@ import {
  * @interface ProductResults
  */
 export interface ProductResults {
-  /**
-   *
-   * @type {Array<Product>}
-   * @memberof ProductResults
-   */
-  results: Array<Product>;
+	/**
+	 *
+	 * @type {Array<Product>}
+	 * @memberof ProductResults
+	 */
+	results: Array<Product>;
 }
 
 /**
  * Check if a given object implements the ProductResults interface.
  */
 export function instanceOfProductResults(
-  value: object
+	value: object,
 ): value is ProductResults {
-  if (!("results" in value) || value["results"] === undefined) return false;
-  return true;
+	if (!("results" in value) || value["results"] === undefined) return false;
+	return true;
 }
 
 export function ProductResultsFromJSON(json: any): ProductResults {
-  return ProductResultsFromJSONTyped(json, false);
+	return ProductResultsFromJSONTyped(json, false);
 }
 
 export function ProductResultsFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ProductResults {
-  if (json == null) {
-    return json;
-  }
-  return {
-    results: (json["results"] as Array<any>).map(ProductFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		results: (json["results"] as Array<any>).map(ProductFromJSON),
+	};
 }
 
 export function ProductResultsToJSON(json: any): ProductResults {
-  return ProductResultsToJSONTyped(json, false);
+	return ProductResultsToJSONTyped(json, false);
 }
 
 export function ProductResultsToJSONTyped(
-  value?: ProductResults | null,
-  ignoreDiscriminator: boolean = false
+	value?: ProductResults | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    results: (value["results"] as Array<any>).map(ProductToJSON),
-  };
+	return {
+		results: (value["results"] as Array<any>).map(ProductToJSON),
+	};
 }

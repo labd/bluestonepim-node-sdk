@@ -17,145 +17,143 @@ import type { PublishInfo } from "../models/index";
 import { PublishInfoFromJSON, PublishInfoToJSON } from "../models/index";
 
 export interface SyncsApiGetPublishInfoRequest {
-  id: string;
+	id: string;
 }
 
 export interface SyncsApiGetPublishInfosRequest {
-  context?: string;
-  sort?: string;
-  publishStates?: string;
-  createdAfter?: number;
-  itemsOnPage?: number;
-  pageNo?: number;
+	context?: string;
+	sort?: string;
+	publishStates?: string;
+	createdAfter?: number;
+	itemsOnPage?: number;
+	pageNo?: number;
 }
 
 /**
  *
  */
 export class SyncsApi extends runtime.BaseAPI {
-  /**
-   * Retrieves the information about given PublishInfo environment.
-   */
-  async getPublishInfoRaw(
-    requestParameters: SyncsApiGetPublishInfoRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<PublishInfo>> {
-    if (requestParameters["id"] == null) {
-      throw new runtime.RequiredError(
-        "id",
-        'Required parameter "id" was null or undefined when calling getPublishInfo().'
-      );
-    }
+	/**
+	 * Retrieves the information about given PublishInfo environment.
+	 */
+	async getPublishInfoRaw(
+		requestParameters: SyncsApiGetPublishInfoRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<PublishInfo>> {
+		if (requestParameters["id"] == null) {
+			throw new runtime.RequiredError(
+				"id",
+				'Required parameter "id" was null or undefined when calling getPublishInfo().',
+			);
+		}
 
-    const queryParameters: any = {};
+		const queryParameters: any = {};
 
-    const headerParameters: runtime.HTTPHeaders = {};
+		const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
 
-    const response = await this.request(
-      {
-        path: `/syncs/{id}`.replace(
-          `{${"id"}}`,
-          encodeURIComponent(String(requestParameters["id"]))
-        ),
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+		const response = await this.request(
+			{
+				path: `/syncs/{id}`.replace(
+					`{${"id"}}`,
+					encodeURIComponent(String(requestParameters["id"])),
+				),
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      PublishInfoFromJSON(jsonValue)
-    );
-  }
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			PublishInfoFromJSON(jsonValue),
+		);
+	}
 
-  /**
-   * Retrieves the information about given PublishInfo environment.
-   */
-  async getPublishInfo(
-    requestParameters: SyncsApiGetPublishInfoRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<PublishInfo> {
-    const response = await this.getPublishInfoRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
+	/**
+	 * Retrieves the information about given PublishInfo environment.
+	 */
+	async getPublishInfo(
+		requestParameters: SyncsApiGetPublishInfoRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<PublishInfo> {
+		const response = await this.getPublishInfoRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
 
-  /**
-   * Retrieves a collection of publish info for given tenant.
-   */
-  async getPublishInfosRaw(
-    requestParameters: SyncsApiGetPublishInfosRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<PublishInfo>>> {
-    const queryParameters: any = {};
+	/**
+	 * Retrieves a collection of publish info for given tenant.
+	 */
+	async getPublishInfosRaw(
+		requestParameters: SyncsApiGetPublishInfosRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<PublishInfo>>> {
+		const queryParameters: any = {};
 
-    if (requestParameters["context"] != null) {
-      queryParameters["context"] = requestParameters["context"];
-    }
+		if (requestParameters["context"] != null) {
+			queryParameters["context"] = requestParameters["context"];
+		}
 
-    if (requestParameters["sort"] != null) {
-      queryParameters["sort"] = requestParameters["sort"];
-    }
+		if (requestParameters["sort"] != null) {
+			queryParameters["sort"] = requestParameters["sort"];
+		}
 
-    if (requestParameters["publishStates"] != null) {
-      queryParameters["publishStates"] = requestParameters["publishStates"];
-    }
+		if (requestParameters["publishStates"] != null) {
+			queryParameters["publishStates"] = requestParameters["publishStates"];
+		}
 
-    if (requestParameters["createdAfter"] != null) {
-      queryParameters["createdAfter"] = requestParameters["createdAfter"];
-    }
+		if (requestParameters["createdAfter"] != null) {
+			queryParameters["createdAfter"] = requestParameters["createdAfter"];
+		}
 
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
 
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
 
-    const headerParameters: runtime.HTTPHeaders = {};
+		const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
 
-    const response = await this.request(
-      {
-        path: `/syncs`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+		const response = await this.request(
+			{
+				path: `/syncs`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(PublishInfoFromJSON)
-    );
-  }
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(PublishInfoFromJSON),
+		);
+	}
 
-  /**
-   * Retrieves a collection of publish info for given tenant.
-   */
-  async getPublishInfos(
-    requestParameters: SyncsApiGetPublishInfosRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<PublishInfo>> {
-    const response = await this.getPublishInfosRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
+	/**
+	 * Retrieves a collection of publish info for given tenant.
+	 */
+	async getPublishInfos(
+		requestParameters: SyncsApiGetPublishInfosRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<PublishInfo>> {
+		const response = await this.getPublishInfosRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
 }

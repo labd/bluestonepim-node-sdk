@@ -115,7 +115,12 @@
 	},
 	"overrides": [
 		{
-			"includes": ["src/apis/**", "src/models/**", "src/runtime.ts", "src/index.ts"],
+			"includes": [
+				"src/apis/**",
+				"src/models/**",
+				"src/runtime.ts",
+				"src/index.ts"
+			],
 			"linter": { "enabled": false }
 		}
 	]

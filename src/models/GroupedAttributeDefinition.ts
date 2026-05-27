@@ -15,24 +15,24 @@
 import { mapValues } from "../runtime";
 import type { ColumnAttributeDefinitionValue } from "./ColumnAttributeDefinitionValue";
 import {
-  ColumnAttributeDefinitionValueFromJSON,
-  ColumnAttributeDefinitionValueFromJSONTyped,
-  ColumnAttributeDefinitionValueToJSON,
-  ColumnAttributeDefinitionValueToJSONTyped,
+	ColumnAttributeDefinitionValueFromJSON,
+	ColumnAttributeDefinitionValueFromJSONTyped,
+	ColumnAttributeDefinitionValueToJSON,
+	ColumnAttributeDefinitionValueToJSONTyped,
 } from "./ColumnAttributeDefinitionValue";
 import type { CompoundAttributeSubDefinition } from "./CompoundAttributeSubDefinition";
 import {
-  CompoundAttributeSubDefinitionFromJSON,
-  CompoundAttributeSubDefinitionFromJSONTyped,
-  CompoundAttributeSubDefinitionToJSON,
-  CompoundAttributeSubDefinitionToJSONTyped,
+	CompoundAttributeSubDefinitionFromJSON,
+	CompoundAttributeSubDefinitionFromJSONTyped,
+	CompoundAttributeSubDefinitionToJSON,
+	CompoundAttributeSubDefinitionToJSONTyped,
 } from "./CompoundAttributeSubDefinition";
 import type { RowAttributeDefinitionValue } from "./RowAttributeDefinitionValue";
 import {
-  RowAttributeDefinitionValueFromJSON,
-  RowAttributeDefinitionValueFromJSONTyped,
-  RowAttributeDefinitionValueToJSON,
-  RowAttributeDefinitionValueToJSONTyped,
+	RowAttributeDefinitionValueFromJSON,
+	RowAttributeDefinitionValueFromJSONTyped,
+	RowAttributeDefinitionValueToJSON,
+	RowAttributeDefinitionValueToJSONTyped,
 } from "./RowAttributeDefinitionValue";
 
 /**
@@ -41,219 +41,219 @@ import {
  * @interface GroupedAttributeDefinition
  */
 export interface GroupedAttributeDefinition {
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  name: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  unit?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  dataType?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof GroupedAttributeDefinition
-   */
-  sortingOrder: number;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  groupId: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  groupName: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  groupNumber?: string;
-  /**
-   *
-   * @type {Array<ColumnAttributeDefinitionValue>}
-   * @memberof GroupedAttributeDefinition
-   */
-  columns?: Array<ColumnAttributeDefinitionValue>;
-  /**
-   *
-   * @type {Array<RowAttributeDefinitionValue>}
-   * @memberof GroupedAttributeDefinition
-   */
-  rows?: Array<RowAttributeDefinitionValue>;
-  /**
-   *
-   * @type {boolean}
-   * @memberof GroupedAttributeDefinition
-   */
-  isCompound?: boolean;
-  /**
-   *
-   * @type {Array<CompoundAttributeSubDefinition>}
-   * @memberof GroupedAttributeDefinition
-   */
-  subDefinitions?: Array<CompoundAttributeSubDefinition>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof GroupedAttributeDefinition
-   */
-  format?: Array<string>;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupedAttributeDefinition
-   */
-  description?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof GroupedAttributeDefinition
-   */
-  order: number;
-  /**
-   *
-   * @type {number}
-   * @memberof GroupedAttributeDefinition
-   */
-  groupOrder: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	name: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	unit?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	dataType?: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	sortingOrder: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	groupId: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	groupName: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	groupNumber?: string;
+	/**
+	 *
+	 * @type {Array<ColumnAttributeDefinitionValue>}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	columns?: Array<ColumnAttributeDefinitionValue>;
+	/**
+	 *
+	 * @type {Array<RowAttributeDefinitionValue>}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	rows?: Array<RowAttributeDefinitionValue>;
+	/**
+	 *
+	 * @type {boolean}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	isCompound?: boolean;
+	/**
+	 *
+	 * @type {Array<CompoundAttributeSubDefinition>}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	subDefinitions?: Array<CompoundAttributeSubDefinition>;
+	/**
+	 *
+	 * @type {Array<string>}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	format?: Array<string>;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	description?: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	order: number;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof GroupedAttributeDefinition
+	 */
+	groupOrder: number;
 }
 
 /**
  * Check if a given object implements the GroupedAttributeDefinition interface.
  */
 export function instanceOfGroupedAttributeDefinition(
-  value: object
+	value: object,
 ): value is GroupedAttributeDefinition {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("name" in value) || value["name"] === undefined) return false;
-  if (!("sortingOrder" in value) || value["sortingOrder"] === undefined)
-    return false;
-  if (!("groupId" in value) || value["groupId"] === undefined) return false;
-  if (!("groupName" in value) || value["groupName"] === undefined) return false;
-  if (!("order" in value) || value["order"] === undefined) return false;
-  if (!("groupOrder" in value) || value["groupOrder"] === undefined)
-    return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("name" in value) || value["name"] === undefined) return false;
+	if (!("sortingOrder" in value) || value["sortingOrder"] === undefined)
+		return false;
+	if (!("groupId" in value) || value["groupId"] === undefined) return false;
+	if (!("groupName" in value) || value["groupName"] === undefined) return false;
+	if (!("order" in value) || value["order"] === undefined) return false;
+	if (!("groupOrder" in value) || value["groupOrder"] === undefined)
+		return false;
+	return true;
 }
 
 export function GroupedAttributeDefinitionFromJSON(
-  json: any
+	json: any,
 ): GroupedAttributeDefinition {
-  return GroupedAttributeDefinitionFromJSONTyped(json, false);
+	return GroupedAttributeDefinitionFromJSONTyped(json, false);
 }
 
 export function GroupedAttributeDefinitionFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): GroupedAttributeDefinition {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"],
-    number: json["number"] == null ? undefined : json["number"],
-    unit: json["unit"] == null ? undefined : json["unit"],
-    dataType: json["dataType"] == null ? undefined : json["dataType"],
-    sortingOrder: json["sortingOrder"],
-    groupId: json["groupId"],
-    groupName: json["groupName"],
-    groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
-    columns:
-      json["columns"] == null
-        ? undefined
-        : (json["columns"] as Array<any>).map(
-            ColumnAttributeDefinitionValueFromJSON
-          ),
-    rows:
-      json["rows"] == null
-        ? undefined
-        : (json["rows"] as Array<any>).map(RowAttributeDefinitionValueFromJSON),
-    isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
-    subDefinitions:
-      json["subDefinitions"] == null
-        ? undefined
-        : (json["subDefinitions"] as Array<any>).map(
-            CompoundAttributeSubDefinitionFromJSON
-          ),
-    format: json["format"] == null ? undefined : json["format"],
-    description: json["description"] == null ? undefined : json["description"],
-    order: json["order"],
-    groupOrder: json["groupOrder"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"],
+		number: json["number"] == null ? undefined : json["number"],
+		unit: json["unit"] == null ? undefined : json["unit"],
+		dataType: json["dataType"] == null ? undefined : json["dataType"],
+		sortingOrder: json["sortingOrder"],
+		groupId: json["groupId"],
+		groupName: json["groupName"],
+		groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
+		columns:
+			json["columns"] == null
+				? undefined
+				: (json["columns"] as Array<any>).map(
+						ColumnAttributeDefinitionValueFromJSON,
+					),
+		rows:
+			json["rows"] == null
+				? undefined
+				: (json["rows"] as Array<any>).map(RowAttributeDefinitionValueFromJSON),
+		isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
+		subDefinitions:
+			json["subDefinitions"] == null
+				? undefined
+				: (json["subDefinitions"] as Array<any>).map(
+						CompoundAttributeSubDefinitionFromJSON,
+					),
+		format: json["format"] == null ? undefined : json["format"],
+		description: json["description"] == null ? undefined : json["description"],
+		order: json["order"],
+		groupOrder: json["groupOrder"],
+	};
 }
 
 export function GroupedAttributeDefinitionToJSON(
-  json: any
+	json: any,
 ): GroupedAttributeDefinition {
-  return GroupedAttributeDefinitionToJSONTyped(json, false);
+	return GroupedAttributeDefinitionToJSONTyped(json, false);
 }
 
 export function GroupedAttributeDefinitionToJSONTyped(
-  value?: GroupedAttributeDefinition | null,
-  ignoreDiscriminator: boolean = false
+	value?: GroupedAttributeDefinition | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    number: value["number"],
-    unit: value["unit"],
-    dataType: value["dataType"],
-    sortingOrder: value["sortingOrder"],
-    groupId: value["groupId"],
-    groupName: value["groupName"],
-    groupNumber: value["groupNumber"],
-    columns:
-      value["columns"] == null
-        ? undefined
-        : (value["columns"] as Array<any>).map(
-            ColumnAttributeDefinitionValueToJSON
-          ),
-    rows:
-      value["rows"] == null
-        ? undefined
-        : (value["rows"] as Array<any>).map(RowAttributeDefinitionValueToJSON),
-    isCompound: value["isCompound"],
-    subDefinitions:
-      value["subDefinitions"] == null
-        ? undefined
-        : (value["subDefinitions"] as Array<any>).map(
-            CompoundAttributeSubDefinitionToJSON
-          ),
-    format: value["format"],
-    description: value["description"],
-    order: value["order"],
-    groupOrder: value["groupOrder"],
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		number: value["number"],
+		unit: value["unit"],
+		dataType: value["dataType"],
+		sortingOrder: value["sortingOrder"],
+		groupId: value["groupId"],
+		groupName: value["groupName"],
+		groupNumber: value["groupNumber"],
+		columns:
+			value["columns"] == null
+				? undefined
+				: (value["columns"] as Array<any>).map(
+						ColumnAttributeDefinitionValueToJSON,
+					),
+		rows:
+			value["rows"] == null
+				? undefined
+				: (value["rows"] as Array<any>).map(RowAttributeDefinitionValueToJSON),
+		isCompound: value["isCompound"],
+		subDefinitions:
+			value["subDefinitions"] == null
+				? undefined
+				: (value["subDefinitions"] as Array<any>).map(
+						CompoundAttributeSubDefinitionToJSON,
+					),
+		format: value["format"],
+		description: value["description"],
+		order: value["order"],
+		groupOrder: value["groupOrder"],
+	};
 }

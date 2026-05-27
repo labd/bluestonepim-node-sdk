@@ -19,65 +19,65 @@ import { mapValues } from "../runtime";
  * @interface CompoundAttributeSubDefinition
  */
 export interface CompoundAttributeSubDefinition {
-  /**
-   *
-   * @type {string}
-   * @memberof CompoundAttributeSubDefinition
-   */
-  id: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof CompoundAttributeSubDefinition
-   */
-  isCompound?: boolean;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CompoundAttributeSubDefinition
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {boolean}
+	 * @memberof CompoundAttributeSubDefinition
+	 */
+	isCompound?: boolean;
 }
 
 /**
  * Check if a given object implements the CompoundAttributeSubDefinition interface.
  */
 export function instanceOfCompoundAttributeSubDefinition(
-  value: object
+	value: object,
 ): value is CompoundAttributeSubDefinition {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	return true;
 }
 
 export function CompoundAttributeSubDefinitionFromJSON(
-  json: any
+	json: any,
 ): CompoundAttributeSubDefinition {
-  return CompoundAttributeSubDefinitionFromJSONTyped(json, false);
+	return CompoundAttributeSubDefinitionFromJSONTyped(json, false);
 }
 
 export function CompoundAttributeSubDefinitionFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): CompoundAttributeSubDefinition {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
+	};
 }
 
 export function CompoundAttributeSubDefinitionToJSON(
-  json: any
+	json: any,
 ): CompoundAttributeSubDefinition {
-  return CompoundAttributeSubDefinitionToJSONTyped(json, false);
+	return CompoundAttributeSubDefinitionToJSONTyped(json, false);
 }
 
 export function CompoundAttributeSubDefinitionToJSONTyped(
-  value?: CompoundAttributeSubDefinition | null,
-  ignoreDiscriminator: boolean = false
+	value?: CompoundAttributeSubDefinition | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    isCompound: value["isCompound"],
-  };
+	return {
+		id: value["id"],
+		isCompound: value["isCompound"],
+	};
 }

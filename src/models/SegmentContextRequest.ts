@@ -19,62 +19,62 @@ import { mapValues } from "../runtime";
  * @interface SegmentContextRequest
  */
 export interface SegmentContextRequest {
-  /**
-   * Context id, or 'en' if id is not specified.
-   * @type {string}
-   * @memberof SegmentContextRequest
-   */
-  context?: string;
-  /**
-   * Context name, or 'default' if name is not specified.
-   * @type {string}
-   * @memberof SegmentContextRequest
-   */
-  contextName?: string;
+	/**
+	 * Context id, or 'en' if id is not specified.
+	 * @type {string}
+	 * @memberof SegmentContextRequest
+	 */
+	context?: string;
+	/**
+	 * Context name, or 'default' if name is not specified.
+	 * @type {string}
+	 * @memberof SegmentContextRequest
+	 */
+	contextName?: string;
 }
 
 /**
  * Check if a given object implements the SegmentContextRequest interface.
  */
 export function instanceOfSegmentContextRequest(
-  value: object
+	value: object,
 ): value is SegmentContextRequest {
-  return true;
+	return true;
 }
 
 export function SegmentContextRequestFromJSON(
-  json: any
+	json: any,
 ): SegmentContextRequest {
-  return SegmentContextRequestFromJSONTyped(json, false);
+	return SegmentContextRequestFromJSONTyped(json, false);
 }
 
 export function SegmentContextRequestFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): SegmentContextRequest {
-  if (json == null) {
-    return json;
-  }
-  return {
-    context: json["context"] == null ? undefined : json["context"],
-    contextName: json["contextName"] == null ? undefined : json["contextName"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		context: json["context"] == null ? undefined : json["context"],
+		contextName: json["contextName"] == null ? undefined : json["contextName"],
+	};
 }
 
 export function SegmentContextRequestToJSON(json: any): SegmentContextRequest {
-  return SegmentContextRequestToJSONTyped(json, false);
+	return SegmentContextRequestToJSONTyped(json, false);
 }
 
 export function SegmentContextRequestToJSONTyped(
-  value?: SegmentContextRequest | null,
-  ignoreDiscriminator: boolean = false
+	value?: SegmentContextRequest | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    context: value["context"],
-    contextName: value["contextName"],
-  };
+	return {
+		context: value["context"],
+		contextName: value["contextName"],
+	};
 }

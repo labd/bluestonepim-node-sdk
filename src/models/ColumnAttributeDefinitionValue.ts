@@ -19,65 +19,65 @@ import { mapValues } from "../runtime";
  * @interface ColumnAttributeDefinitionValue
  */
 export interface ColumnAttributeDefinitionValue {
-  /**
-   *
-   * @type {string}
-   * @memberof ColumnAttributeDefinitionValue
-   */
-  valueId: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ColumnAttributeDefinitionValue
-   */
-  value?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ColumnAttributeDefinitionValue
+	 */
+	valueId: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ColumnAttributeDefinitionValue
+	 */
+	value?: string;
 }
 
 /**
  * Check if a given object implements the ColumnAttributeDefinitionValue interface.
  */
 export function instanceOfColumnAttributeDefinitionValue(
-  value: object
+	value: object,
 ): value is ColumnAttributeDefinitionValue {
-  if (!("valueId" in value) || value["valueId"] === undefined) return false;
-  return true;
+	if (!("valueId" in value) || value["valueId"] === undefined) return false;
+	return true;
 }
 
 export function ColumnAttributeDefinitionValueFromJSON(
-  json: any
+	json: any,
 ): ColumnAttributeDefinitionValue {
-  return ColumnAttributeDefinitionValueFromJSONTyped(json, false);
+	return ColumnAttributeDefinitionValueFromJSONTyped(json, false);
 }
 
 export function ColumnAttributeDefinitionValueFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ColumnAttributeDefinitionValue {
-  if (json == null) {
-    return json;
-  }
-  return {
-    valueId: json["valueId"],
-    value: json["value"] == null ? undefined : json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		valueId: json["valueId"],
+		value: json["value"] == null ? undefined : json["value"],
+	};
 }
 
 export function ColumnAttributeDefinitionValueToJSON(
-  json: any
+	json: any,
 ): ColumnAttributeDefinitionValue {
-  return ColumnAttributeDefinitionValueToJSONTyped(json, false);
+	return ColumnAttributeDefinitionValueToJSONTyped(json, false);
 }
 
 export function ColumnAttributeDefinitionValueToJSONTyped(
-  value?: ColumnAttributeDefinitionValue | null,
-  ignoreDiscriminator: boolean = false
+	value?: ColumnAttributeDefinitionValue | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    valueId: value["valueId"],
-    value: value["value"],
-  };
+	return {
+		valueId: value["valueId"],
+		value: value["value"],
+	};
 }

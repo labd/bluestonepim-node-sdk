@@ -15,24 +15,24 @@
 import { mapValues } from "../runtime";
 import type { Attribute } from "./Attribute";
 import {
-  AttributeFromJSON,
-  AttributeFromJSONTyped,
-  AttributeToJSON,
-  AttributeToJSONTyped,
+	AttributeFromJSON,
+	AttributeFromJSONTyped,
+	AttributeToJSON,
+	AttributeToJSONTyped,
 } from "./Attribute";
 import type { CategoryMediaAsset } from "./CategoryMediaAsset";
 import {
-  CategoryMediaAssetFromJSON,
-  CategoryMediaAssetFromJSONTyped,
-  CategoryMediaAssetToJSON,
-  CategoryMediaAssetToJSONTyped,
+	CategoryMediaAssetFromJSON,
+	CategoryMediaAssetFromJSONTyped,
+	CategoryMediaAssetToJSON,
+	CategoryMediaAssetToJSONTyped,
 } from "./CategoryMediaAsset";
 import type { MetaData } from "./MetaData";
 import {
-  MetaDataFromJSON,
-  MetaDataFromJSONTyped,
-  MetaDataToJSON,
-  MetaDataToJSONTyped,
+	MetaDataFromJSON,
+	MetaDataFromJSONTyped,
+	MetaDataToJSON,
+	MetaDataToJSONTyped,
 } from "./MetaData";
 
 /**
@@ -41,136 +41,136 @@ import {
  * @interface SimplifiedCategory
  */
 export interface SimplifiedCategory {
-  /**
-   * id of the category.
-   * @type {string}
-   * @memberof SimplifiedCategory
-   */
-  id: string;
-  /**
-   * id of parent category.
-   * @type {string}
-   * @memberof SimplifiedCategory
-   */
-  parentId?: string;
-  /**
-   * order of category in parent category.
-   * @type {number}
-   * @memberof SimplifiedCategory
-   */
-  order?: number;
-  /**
-   * Category name.
-   * @type {string}
-   * @memberof SimplifiedCategory
-   */
-  name: string;
-  /**
-   * Category number.
-   * @type {string}
-   * @memberof SimplifiedCategory
-   */
-  number?: string;
-  /**
-   * Category description.
-   * @type {string}
-   * @memberof SimplifiedCategory
-   */
-  description?: string;
-  /**
-   * Category media assets.
-   * @type {Array<CategoryMediaAsset>}
-   * @memberof SimplifiedCategory
-   */
-  media?: Array<CategoryMediaAsset>;
-  /**
-   * Category attributes.
-   * @type {Array<Attribute>}
-   * @memberof SimplifiedCategory
-   */
-  attributes?: Array<Attribute>;
-  /**
-   * Any metadata.
-   * @type {Array<MetaData>}
-   * @memberof SimplifiedCategory
-   */
-  metaData?: Array<MetaData>;
+	/**
+	 * id of the category.
+	 * @type {string}
+	 * @memberof SimplifiedCategory
+	 */
+	id: string;
+	/**
+	 * id of parent category.
+	 * @type {string}
+	 * @memberof SimplifiedCategory
+	 */
+	parentId?: string;
+	/**
+	 * order of category in parent category.
+	 * @type {number}
+	 * @memberof SimplifiedCategory
+	 */
+	order?: number;
+	/**
+	 * Category name.
+	 * @type {string}
+	 * @memberof SimplifiedCategory
+	 */
+	name: string;
+	/**
+	 * Category number.
+	 * @type {string}
+	 * @memberof SimplifiedCategory
+	 */
+	number?: string;
+	/**
+	 * Category description.
+	 * @type {string}
+	 * @memberof SimplifiedCategory
+	 */
+	description?: string;
+	/**
+	 * Category media assets.
+	 * @type {Array<CategoryMediaAsset>}
+	 * @memberof SimplifiedCategory
+	 */
+	media?: Array<CategoryMediaAsset>;
+	/**
+	 * Category attributes.
+	 * @type {Array<Attribute>}
+	 * @memberof SimplifiedCategory
+	 */
+	attributes?: Array<Attribute>;
+	/**
+	 * Any metadata.
+	 * @type {Array<MetaData>}
+	 * @memberof SimplifiedCategory
+	 */
+	metaData?: Array<MetaData>;
 }
 
 /**
  * Check if a given object implements the SimplifiedCategory interface.
  */
 export function instanceOfSimplifiedCategory(
-  value: object
+	value: object,
 ): value is SimplifiedCategory {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("name" in value) || value["name"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("name" in value) || value["name"] === undefined) return false;
+	return true;
 }
 
 export function SimplifiedCategoryFromJSON(json: any): SimplifiedCategory {
-  return SimplifiedCategoryFromJSONTyped(json, false);
+	return SimplifiedCategoryFromJSONTyped(json, false);
 }
 
 export function SimplifiedCategoryFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): SimplifiedCategory {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    parentId: json["parentId"] == null ? undefined : json["parentId"],
-    order: json["order"] == null ? undefined : json["order"],
-    name: json["name"],
-    number: json["number"] == null ? undefined : json["number"],
-    description: json["description"] == null ? undefined : json["description"],
-    media:
-      json["media"] == null
-        ? undefined
-        : (json["media"] as Array<any>).map(CategoryMediaAssetFromJSON),
-    attributes:
-      json["attributes"] == null
-        ? undefined
-        : (json["attributes"] as Array<any>).map(AttributeFromJSON),
-    metaData:
-      json["metaData"] == null
-        ? undefined
-        : (json["metaData"] as Array<any>).map(MetaDataFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		parentId: json["parentId"] == null ? undefined : json["parentId"],
+		order: json["order"] == null ? undefined : json["order"],
+		name: json["name"],
+		number: json["number"] == null ? undefined : json["number"],
+		description: json["description"] == null ? undefined : json["description"],
+		media:
+			json["media"] == null
+				? undefined
+				: (json["media"] as Array<any>).map(CategoryMediaAssetFromJSON),
+		attributes:
+			json["attributes"] == null
+				? undefined
+				: (json["attributes"] as Array<any>).map(AttributeFromJSON),
+		metaData:
+			json["metaData"] == null
+				? undefined
+				: (json["metaData"] as Array<any>).map(MetaDataFromJSON),
+	};
 }
 
 export function SimplifiedCategoryToJSON(json: any): SimplifiedCategory {
-  return SimplifiedCategoryToJSONTyped(json, false);
+	return SimplifiedCategoryToJSONTyped(json, false);
 }
 
 export function SimplifiedCategoryToJSONTyped(
-  value?: SimplifiedCategory | null,
-  ignoreDiscriminator: boolean = false
+	value?: SimplifiedCategory | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    parentId: value["parentId"],
-    order: value["order"],
-    name: value["name"],
-    number: value["number"],
-    description: value["description"],
-    media:
-      value["media"] == null
-        ? undefined
-        : (value["media"] as Array<any>).map(CategoryMediaAssetToJSON),
-    attributes:
-      value["attributes"] == null
-        ? undefined
-        : (value["attributes"] as Array<any>).map(AttributeToJSON),
-    metaData:
-      value["metaData"] == null
-        ? undefined
-        : (value["metaData"] as Array<any>).map(MetaDataToJSON),
-  };
+	return {
+		id: value["id"],
+		parentId: value["parentId"],
+		order: value["order"],
+		name: value["name"],
+		number: value["number"],
+		description: value["description"],
+		media:
+			value["media"] == null
+				? undefined
+				: (value["media"] as Array<any>).map(CategoryMediaAssetToJSON),
+		attributes:
+			value["attributes"] == null
+				? undefined
+				: (value["attributes"] as Array<any>).map(AttributeToJSON),
+		metaData:
+			value["metaData"] == null
+				? undefined
+				: (value["metaData"] as Array<any>).map(MetaDataToJSON),
+	};
 }

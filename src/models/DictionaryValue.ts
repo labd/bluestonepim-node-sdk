@@ -19,69 +19,69 @@ import { mapValues } from "../runtime";
  * @interface DictionaryValue
  */
 export interface DictionaryValue {
-  /**
-   *
-   * @type {string}
-   * @memberof DictionaryValue
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DictionaryValue
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DictionaryValue
-   */
-  value?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof DictionaryValue
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof DictionaryValue
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof DictionaryValue
+	 */
+	value?: string;
 }
 
 /**
  * Check if a given object implements the DictionaryValue interface.
  */
 export function instanceOfDictionaryValue(
-  value: object
+	value: object,
 ): value is DictionaryValue {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	return true;
 }
 
 export function DictionaryValueFromJSON(json: any): DictionaryValue {
-  return DictionaryValueFromJSONTyped(json, false);
+	return DictionaryValueFromJSONTyped(json, false);
 }
 
 export function DictionaryValueFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): DictionaryValue {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    number: json["number"] == null ? undefined : json["number"],
-    value: json["value"] == null ? undefined : json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		number: json["number"] == null ? undefined : json["number"],
+		value: json["value"] == null ? undefined : json["value"],
+	};
 }
 
 export function DictionaryValueToJSON(json: any): DictionaryValue {
-  return DictionaryValueToJSONTyped(json, false);
+	return DictionaryValueToJSONTyped(json, false);
 }
 
 export function DictionaryValueToJSONTyped(
-  value?: DictionaryValue | null,
-  ignoreDiscriminator: boolean = false
+	value?: DictionaryValue | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    number: value["number"],
-    value: value["value"],
-  };
+	return {
+		id: value["id"],
+		number: value["number"],
+		value: value["value"],
+	};
 }

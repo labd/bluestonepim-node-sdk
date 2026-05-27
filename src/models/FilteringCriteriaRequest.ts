@@ -15,17 +15,17 @@
 import { mapValues } from "../runtime";
 import type { AttributeFilter } from "./AttributeFilter";
 import {
-  AttributeFilterFromJSON,
-  AttributeFilterFromJSONTyped,
-  AttributeFilterToJSON,
-  AttributeFilterToJSONTyped,
+	AttributeFilterFromJSON,
+	AttributeFilterFromJSONTyped,
+	AttributeFilterToJSON,
+	AttributeFilterToJSONTyped,
 } from "./AttributeFilter";
 import type { ProductType } from "./ProductType";
 import {
-  ProductTypeFromJSON,
-  ProductTypeFromJSONTyped,
-  ProductTypeToJSON,
-  ProductTypeToJSONTyped,
+	ProductTypeFromJSON,
+	ProductTypeFromJSONTyped,
+	ProductTypeToJSON,
+	ProductTypeToJSONTyped,
 } from "./ProductType";
 
 /**
@@ -34,140 +34,140 @@ import {
  * @interface FilteringCriteriaRequest
  */
 export interface FilteringCriteriaRequest {
-  /**
-   * Product ids returned entries must be matched to.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  ids?: Array<string>;
-  /**
-   * Product names products must contain.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  names?: Array<string>;
-  /**
-   * Product numbers products must be equal to.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  numbers?: Array<string>;
-  /**
-   * A set of labels products must contain.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  labels?: Array<string>;
-  /**
-   * A set of category ids the product must be in.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  categories?: Array<string>;
-  /**
-   * A set of attribute ids the product must be in.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  attributes?: Array<string>;
-  /**
-   * Attribute filters.
-   * @type {Array<AttributeFilter>}
-   * @memberof FilteringCriteriaRequest
-   */
-  attributeFilters?: Array<AttributeFilter>;
-  /**
-   * A set of relation ids the product must be in.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  relations?: Array<string>;
-  /**
-   * A products must be of provided types
-   * @type {Array<ProductType>}
-   * @memberof FilteringCriteriaRequest
-   */
-  productTypes?: Array<ProductType>;
-  /**
-   * Product ids that should be assign to bundles.
-   * @type {Array<string>}
-   * @memberof FilteringCriteriaRequest
-   */
-  bundles?: Array<string>;
+	/**
+	 * Product ids returned entries must be matched to.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	ids?: Array<string>;
+	/**
+	 * Product names products must contain.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	names?: Array<string>;
+	/**
+	 * Product numbers products must be equal to.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	numbers?: Array<string>;
+	/**
+	 * A set of labels products must contain.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	labels?: Array<string>;
+	/**
+	 * A set of category ids the product must be in.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	categories?: Array<string>;
+	/**
+	 * A set of attribute ids the product must be in.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	attributes?: Array<string>;
+	/**
+	 * Attribute filters.
+	 * @type {Array<AttributeFilter>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	attributeFilters?: Array<AttributeFilter>;
+	/**
+	 * A set of relation ids the product must be in.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	relations?: Array<string>;
+	/**
+	 * A products must be of provided types
+	 * @type {Array<ProductType>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	productTypes?: Array<ProductType>;
+	/**
+	 * Product ids that should be assign to bundles.
+	 * @type {Array<string>}
+	 * @memberof FilteringCriteriaRequest
+	 */
+	bundles?: Array<string>;
 }
 
 /**
  * Check if a given object implements the FilteringCriteriaRequest interface.
  */
 export function instanceOfFilteringCriteriaRequest(
-  value: object
+	value: object,
 ): value is FilteringCriteriaRequest {
-  return true;
+	return true;
 }
 
 export function FilteringCriteriaRequestFromJSON(
-  json: any
+	json: any,
 ): FilteringCriteriaRequest {
-  return FilteringCriteriaRequestFromJSONTyped(json, false);
+	return FilteringCriteriaRequestFromJSONTyped(json, false);
 }
 
 export function FilteringCriteriaRequestFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): FilteringCriteriaRequest {
-  if (json == null) {
-    return json;
-  }
-  return {
-    ids: json["ids"] == null ? undefined : json["ids"],
-    names: json["names"] == null ? undefined : json["names"],
-    numbers: json["numbers"] == null ? undefined : json["numbers"],
-    labels: json["labels"] == null ? undefined : json["labels"],
-    categories: json["categories"] == null ? undefined : json["categories"],
-    attributes: json["attributes"] == null ? undefined : json["attributes"],
-    attributeFilters:
-      json["attributeFilters"] == null
-        ? undefined
-        : (json["attributeFilters"] as Array<any>).map(AttributeFilterFromJSON),
-    relations: json["relations"] == null ? undefined : json["relations"],
-    productTypes:
-      json["productTypes"] == null
-        ? undefined
-        : (json["productTypes"] as Array<any>).map(ProductTypeFromJSON),
-    bundles: json["bundles"] == null ? undefined : json["bundles"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		ids: json["ids"] == null ? undefined : json["ids"],
+		names: json["names"] == null ? undefined : json["names"],
+		numbers: json["numbers"] == null ? undefined : json["numbers"],
+		labels: json["labels"] == null ? undefined : json["labels"],
+		categories: json["categories"] == null ? undefined : json["categories"],
+		attributes: json["attributes"] == null ? undefined : json["attributes"],
+		attributeFilters:
+			json["attributeFilters"] == null
+				? undefined
+				: (json["attributeFilters"] as Array<any>).map(AttributeFilterFromJSON),
+		relations: json["relations"] == null ? undefined : json["relations"],
+		productTypes:
+			json["productTypes"] == null
+				? undefined
+				: (json["productTypes"] as Array<any>).map(ProductTypeFromJSON),
+		bundles: json["bundles"] == null ? undefined : json["bundles"],
+	};
 }
 
 export function FilteringCriteriaRequestToJSON(
-  json: any
+	json: any,
 ): FilteringCriteriaRequest {
-  return FilteringCriteriaRequestToJSONTyped(json, false);
+	return FilteringCriteriaRequestToJSONTyped(json, false);
 }
 
 export function FilteringCriteriaRequestToJSONTyped(
-  value?: FilteringCriteriaRequest | null,
-  ignoreDiscriminator: boolean = false
+	value?: FilteringCriteriaRequest | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    ids: value["ids"],
-    names: value["names"],
-    numbers: value["numbers"],
-    labels: value["labels"],
-    categories: value["categories"],
-    attributes: value["attributes"],
-    attributeFilters:
-      value["attributeFilters"] == null
-        ? undefined
-        : (value["attributeFilters"] as Array<any>).map(AttributeFilterToJSON),
-    relations: value["relations"],
-    productTypes:
-      value["productTypes"] == null
-        ? undefined
-        : (value["productTypes"] as Array<any>).map(ProductTypeToJSON),
-    bundles: value["bundles"],
-  };
+	return {
+		ids: value["ids"],
+		names: value["names"],
+		numbers: value["numbers"],
+		labels: value["labels"],
+		categories: value["categories"],
+		attributes: value["attributes"],
+		attributeFilters:
+			value["attributeFilters"] == null
+				? undefined
+				: (value["attributeFilters"] as Array<any>).map(AttributeFilterToJSON),
+		relations: value["relations"],
+		productTypes:
+			value["productTypes"] == null
+				? undefined
+				: (value["productTypes"] as Array<any>).map(ProductTypeToJSON),
+		bundles: value["bundles"],
+	};
 }

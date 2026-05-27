@@ -17,49 +17,49 @@
  * @export
  */
 export const PublishStateValues = {
-  Initializing: "INITIALIZING",
-  Pending: "PENDING",
-  Publish: "PUBLISH",
-  PublishCleanup: "PUBLISH_CLEANUP",
-  Closed: "CLOSED",
-  Cancelled: "CANCELLED",
+	Initializing: "INITIALIZING",
+	Pending: "PENDING",
+	Publish: "PUBLISH",
+	PublishCleanup: "PUBLISH_CLEANUP",
+	Closed: "CLOSED",
+	Cancelled: "CANCELLED",
 } as const;
 export type PublishStateValues =
-  (typeof PublishStateValues)[keyof typeof PublishStateValues];
+	(typeof PublishStateValues)[keyof typeof PublishStateValues];
 
 export function instanceOfPublishStateValues(value: any): boolean {
-  for (const key in PublishStateValues) {
-    if (Object.prototype.hasOwnProperty.call(PublishStateValues, key)) {
-      if (
-        PublishStateValues[key as keyof typeof PublishStateValues] === value
-      ) {
-        return true;
-      }
-    }
-  }
-  return false;
+	for (const key in PublishStateValues) {
+		if (Object.prototype.hasOwnProperty.call(PublishStateValues, key)) {
+			if (
+				PublishStateValues[key as keyof typeof PublishStateValues] === value
+			) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 export function PublishStateValuesFromJSON(json: any): PublishStateValues {
-  return PublishStateValuesFromJSONTyped(json, false);
+	return PublishStateValuesFromJSONTyped(json, false);
 }
 
 export function PublishStateValuesFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PublishStateValues {
-  return json as PublishStateValues;
+	return json as PublishStateValues;
 }
 
 export function PublishStateValuesToJSON(
-  value?: PublishStateValues | null
+	value?: PublishStateValues | null,
 ): any {
-  return value as any;
+	return value as any;
 }
 
 export function PublishStateValuesToJSONTyped(
-  value: any,
-  ignoreDiscriminator: boolean
+	value: any,
+	ignoreDiscriminator: boolean,
 ): PublishStateValues {
-  return value as PublishStateValues;
+	return value as PublishStateValues;
 }

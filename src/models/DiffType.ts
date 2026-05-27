@@ -17,41 +17,41 @@
  * @export
  */
 export const DiffType = {
-  Add: "ADD",
-  Delete: "DELETE",
-  Change: "CHANGE",
+	Add: "ADD",
+	Delete: "DELETE",
+	Change: "CHANGE",
 } as const;
 export type DiffType = (typeof DiffType)[keyof typeof DiffType];
 
 export function instanceOfDiffType(value: any): boolean {
-  for (const key in DiffType) {
-    if (Object.prototype.hasOwnProperty.call(DiffType, key)) {
-      if (DiffType[key as keyof typeof DiffType] === value) {
-        return true;
-      }
-    }
-  }
-  return false;
+	for (const key in DiffType) {
+		if (Object.prototype.hasOwnProperty.call(DiffType, key)) {
+			if (DiffType[key as keyof typeof DiffType] === value) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 export function DiffTypeFromJSON(json: any): DiffType {
-  return DiffTypeFromJSONTyped(json, false);
+	return DiffTypeFromJSONTyped(json, false);
 }
 
 export function DiffTypeFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): DiffType {
-  return json as DiffType;
+	return json as DiffType;
 }
 
 export function DiffTypeToJSON(value?: DiffType | null): any {
-  return value as any;
+	return value as any;
 }
 
 export function DiffTypeToJSONTyped(
-  value: any,
-  ignoreDiscriminator: boolean
+	value: any,
+	ignoreDiscriminator: boolean,
 ): DiffType {
-  return value as DiffType;
+	return value as DiffType;
 }

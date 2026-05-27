@@ -15,24 +15,24 @@
 import { mapValues } from "../runtime";
 import type { StatusPapiError } from "./StatusPapiError";
 import {
-  StatusPapiErrorFromJSON,
-  StatusPapiErrorFromJSONTyped,
-  StatusPapiErrorToJSON,
-  StatusPapiErrorToJSONTyped,
+	StatusPapiErrorFromJSON,
+	StatusPapiErrorFromJSONTyped,
+	StatusPapiErrorToJSON,
+	StatusPapiErrorToJSONTyped,
 } from "./StatusPapiError";
 import type { EntitiesPapiError } from "./EntitiesPapiError";
 import {
-  EntitiesPapiErrorFromJSON,
-  EntitiesPapiErrorFromJSONTyped,
-  EntitiesPapiErrorToJSON,
-  EntitiesPapiErrorToJSONTyped,
+	EntitiesPapiErrorFromJSON,
+	EntitiesPapiErrorFromJSONTyped,
+	EntitiesPapiErrorToJSON,
+	EntitiesPapiErrorToJSONTyped,
 } from "./EntitiesPapiError";
 import type { EntityPapiError } from "./EntityPapiError";
 import {
-  EntityPapiErrorFromJSON,
-  EntityPapiErrorFromJSONTyped,
-  EntityPapiErrorToJSON,
-  EntityPapiErrorToJSONTyped,
+	EntityPapiErrorFromJSON,
+	EntityPapiErrorFromJSONTyped,
+	EntityPapiErrorToJSON,
+	EntityPapiErrorToJSONTyped,
 } from "./EntityPapiError";
 
 /**
@@ -41,78 +41,78 @@ import {
  * @interface PapiError
  */
 export interface PapiError {
-  /**
-   *
-   * @type {number}
-   * @memberof PapiError
-   */
-  status: number;
-  /**
-   *
-   * @type {string}
-   * @memberof PapiError
-   */
-  message: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof PapiError
-   */
-  entityIds: Array<string>;
-  /**
-   *
-   * @type {string}
-   * @memberof PapiError
-   */
-  entityId: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PapiError
+	 */
+	status: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof PapiError
+	 */
+	message: string;
+	/**
+	 *
+	 * @type {Array<string>}
+	 * @memberof PapiError
+	 */
+	entityIds: Array<string>;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof PapiError
+	 */
+	entityId: string;
 }
 
 /**
  * Check if a given object implements the PapiError interface.
  */
 export function instanceOfPapiError(value: object): value is PapiError {
-  if (!("status" in value) || value["status"] === undefined) return false;
-  if (!("message" in value) || value["message"] === undefined) return false;
-  if (!("entityIds" in value) || value["entityIds"] === undefined) return false;
-  if (!("entityId" in value) || value["entityId"] === undefined) return false;
-  return true;
+	if (!("status" in value) || value["status"] === undefined) return false;
+	if (!("message" in value) || value["message"] === undefined) return false;
+	if (!("entityIds" in value) || value["entityIds"] === undefined) return false;
+	if (!("entityId" in value) || value["entityId"] === undefined) return false;
+	return true;
 }
 
 export function PapiErrorFromJSON(json: any): PapiError {
-  return PapiErrorFromJSONTyped(json, false);
+	return PapiErrorFromJSONTyped(json, false);
 }
 
 export function PapiErrorFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PapiError {
-  if (json == null) {
-    return json;
-  }
-  return {
-    status: json["status"],
-    message: json["message"],
-    entityIds: json["entityIds"],
-    entityId: json["entityId"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		status: json["status"],
+		message: json["message"],
+		entityIds: json["entityIds"],
+		entityId: json["entityId"],
+	};
 }
 
 export function PapiErrorToJSON(json: any): PapiError {
-  return PapiErrorToJSONTyped(json, false);
+	return PapiErrorToJSONTyped(json, false);
 }
 
 export function PapiErrorToJSONTyped(
-  value?: PapiError | null,
-  ignoreDiscriminator: boolean = false
+	value?: PapiError | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    status: value["status"],
-    message: value["message"],
-    entityIds: value["entityIds"],
-    entityId: value["entityId"],
-  };
+	return {
+		status: value["status"],
+		message: value["message"],
+		entityIds: value["entityIds"],
+		entityId: value["entityId"],
+	};
 }

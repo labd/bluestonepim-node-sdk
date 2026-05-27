@@ -15,65 +15,64 @@
 import * as runtime from "../runtime";
 import type { RelationDefinition } from "../models/index";
 import {
-  RelationDefinitionFromJSON,
-  RelationDefinitionToJSON,
+	RelationDefinitionFromJSON,
+	RelationDefinitionToJSON,
 } from "../models/index";
 
 export interface RelationsApiGetRelationsRequest {
-  context?: string;
+	context?: string;
 }
 
 /**
  *
  */
 export class RelationsApi extends runtime.BaseAPI {
-  /**
-   * Describe the relations available in the system.
-   */
-  async getRelationsRaw(
-    requestParameters: RelationsApiGetRelationsRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<RelationDefinition>>> {
-    const queryParameters: any = {};
+	/**
+	 * Describe the relations available in the system.
+	 */
+	async getRelationsRaw(
+		requestParameters: RelationsApiGetRelationsRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<RelationDefinition>>> {
+		const queryParameters: any = {};
 
-    const headerParameters: runtime.HTTPHeaders = {};
+		const headerParameters: runtime.HTTPHeaders = {};
 
-    if (requestParameters["context"] != null) {
-      headerParameters["context"] = String(requestParameters["context"]);
-    }
+		if (requestParameters["context"] != null) {
+			headerParameters["context"] = String(requestParameters["context"]);
+		}
 
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
 
-    const response = await this.request(
-      {
-        path: `/relations`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+		const response = await this.request(
+			{
+				path: `/relations`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(RelationDefinitionFromJSON)
-    );
-  }
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(RelationDefinitionFromJSON),
+		);
+	}
 
-  /**
-   * Describe the relations available in the system.
-   */
-  async getRelations(
-    requestParameters: RelationsApiGetRelationsRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<RelationDefinition>> {
-    const response = await this.getRelationsRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
+	/**
+	 * Describe the relations available in the system.
+	 */
+	async getRelations(
+		requestParameters: RelationsApiGetRelationsRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<RelationDefinition>> {
+		const response = await this.getRelationsRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
 }

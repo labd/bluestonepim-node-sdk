@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { Product } from "./Product";
 import {
-  ProductFromJSON,
-  ProductFromJSONTyped,
-  ProductToJSON,
-  ProductToJSONTyped,
+	ProductFromJSON,
+	ProductFromJSONTyped,
+	ProductToJSON,
+	ProductToJSONTyped,
 } from "./Product";
 
 /**
@@ -27,63 +27,63 @@ import {
  * @interface CursorPageProduct
  */
 export interface CursorPageProduct {
-  /**
-   *
-   * @type {string}
-   * @memberof CursorPageProduct
-   */
-  nextCursor: string;
-  /**
-   *
-   * @type {Array<Product>}
-   * @memberof CursorPageProduct
-   */
-  results: Array<Product>;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CursorPageProduct
+	 */
+	nextCursor: string;
+	/**
+	 *
+	 * @type {Array<Product>}
+	 * @memberof CursorPageProduct
+	 */
+	results: Array<Product>;
 }
 
 /**
  * Check if a given object implements the CursorPageProduct interface.
  */
 export function instanceOfCursorPageProduct(
-  value: object
+	value: object,
 ): value is CursorPageProduct {
-  if (!("nextCursor" in value) || value["nextCursor"] === undefined)
-    return false;
-  if (!("results" in value) || value["results"] === undefined) return false;
-  return true;
+	if (!("nextCursor" in value) || value["nextCursor"] === undefined)
+		return false;
+	if (!("results" in value) || value["results"] === undefined) return false;
+	return true;
 }
 
 export function CursorPageProductFromJSON(json: any): CursorPageProduct {
-  return CursorPageProductFromJSONTyped(json, false);
+	return CursorPageProductFromJSONTyped(json, false);
 }
 
 export function CursorPageProductFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): CursorPageProduct {
-  if (json == null) {
-    return json;
-  }
-  return {
-    nextCursor: json["nextCursor"],
-    results: (json["results"] as Array<any>).map(ProductFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		nextCursor: json["nextCursor"],
+		results: (json["results"] as Array<any>).map(ProductFromJSON),
+	};
 }
 
 export function CursorPageProductToJSON(json: any): CursorPageProduct {
-  return CursorPageProductToJSONTyped(json, false);
+	return CursorPageProductToJSONTyped(json, false);
 }
 
 export function CursorPageProductToJSONTyped(
-  value?: CursorPageProduct | null,
-  ignoreDiscriminator: boolean = false
+	value?: CursorPageProduct | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    nextCursor: value["nextCursor"],
-    results: (value["results"] as Array<any>).map(ProductToJSON),
-  };
+	return {
+		nextCursor: value["nextCursor"],
+		results: (value["results"] as Array<any>).map(ProductToJSON),
+	};
 }

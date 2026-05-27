@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { SimplifiedCategory } from "./SimplifiedCategory";
 import {
-  SimplifiedCategoryFromJSON,
-  SimplifiedCategoryFromJSONTyped,
-  SimplifiedCategoryToJSON,
-  SimplifiedCategoryToJSONTyped,
+	SimplifiedCategoryFromJSON,
+	SimplifiedCategoryFromJSONTyped,
+	SimplifiedCategoryToJSON,
+	SimplifiedCategoryToJSONTyped,
 } from "./SimplifiedCategory";
 
 /**
@@ -27,67 +27,67 @@ import {
  * @interface PaginatedSimplifiedCategory
  */
 export interface PaginatedSimplifiedCategory {
-  /**
-   *
-   * @type {number}
-   * @memberof PaginatedSimplifiedCategory
-   */
-  totalCount: number;
-  /**
-   *
-   * @type {Array<SimplifiedCategory>}
-   * @memberof PaginatedSimplifiedCategory
-   */
-  results: Array<SimplifiedCategory>;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PaginatedSimplifiedCategory
+	 */
+	totalCount: number;
+	/**
+	 *
+	 * @type {Array<SimplifiedCategory>}
+	 * @memberof PaginatedSimplifiedCategory
+	 */
+	results: Array<SimplifiedCategory>;
 }
 
 /**
  * Check if a given object implements the PaginatedSimplifiedCategory interface.
  */
 export function instanceOfPaginatedSimplifiedCategory(
-  value: object
+	value: object,
 ): value is PaginatedSimplifiedCategory {
-  if (!("totalCount" in value) || value["totalCount"] === undefined)
-    return false;
-  if (!("results" in value) || value["results"] === undefined) return false;
-  return true;
+	if (!("totalCount" in value) || value["totalCount"] === undefined)
+		return false;
+	if (!("results" in value) || value["results"] === undefined) return false;
+	return true;
 }
 
 export function PaginatedSimplifiedCategoryFromJSON(
-  json: any
+	json: any,
 ): PaginatedSimplifiedCategory {
-  return PaginatedSimplifiedCategoryFromJSONTyped(json, false);
+	return PaginatedSimplifiedCategoryFromJSONTyped(json, false);
 }
 
 export function PaginatedSimplifiedCategoryFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PaginatedSimplifiedCategory {
-  if (json == null) {
-    return json;
-  }
-  return {
-    totalCount: json["totalCount"],
-    results: (json["results"] as Array<any>).map(SimplifiedCategoryFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		totalCount: json["totalCount"],
+		results: (json["results"] as Array<any>).map(SimplifiedCategoryFromJSON),
+	};
 }
 
 export function PaginatedSimplifiedCategoryToJSON(
-  json: any
+	json: any,
 ): PaginatedSimplifiedCategory {
-  return PaginatedSimplifiedCategoryToJSONTyped(json, false);
+	return PaginatedSimplifiedCategoryToJSONTyped(json, false);
 }
 
 export function PaginatedSimplifiedCategoryToJSONTyped(
-  value?: PaginatedSimplifiedCategory | null,
-  ignoreDiscriminator: boolean = false
+	value?: PaginatedSimplifiedCategory | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    totalCount: value["totalCount"],
-    results: (value["results"] as Array<any>).map(SimplifiedCategoryToJSON),
-  };
+	return {
+		totalCount: value["totalCount"],
+		results: (value["results"] as Array<any>).map(SimplifiedCategoryToJSON),
+	};
 }

@@ -19,65 +19,65 @@ import { mapValues } from "../runtime";
  * @interface RowAttributeDefinitionValue
  */
 export interface RowAttributeDefinitionValue {
-  /**
-   *
-   * @type {string}
-   * @memberof RowAttributeDefinitionValue
-   */
-  valueId: string;
-  /**
-   *
-   * @type {string}
-   * @memberof RowAttributeDefinitionValue
-   */
-  value?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof RowAttributeDefinitionValue
+	 */
+	valueId: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof RowAttributeDefinitionValue
+	 */
+	value?: string;
 }
 
 /**
  * Check if a given object implements the RowAttributeDefinitionValue interface.
  */
 export function instanceOfRowAttributeDefinitionValue(
-  value: object
+	value: object,
 ): value is RowAttributeDefinitionValue {
-  if (!("valueId" in value) || value["valueId"] === undefined) return false;
-  return true;
+	if (!("valueId" in value) || value["valueId"] === undefined) return false;
+	return true;
 }
 
 export function RowAttributeDefinitionValueFromJSON(
-  json: any
+	json: any,
 ): RowAttributeDefinitionValue {
-  return RowAttributeDefinitionValueFromJSONTyped(json, false);
+	return RowAttributeDefinitionValueFromJSONTyped(json, false);
 }
 
 export function RowAttributeDefinitionValueFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): RowAttributeDefinitionValue {
-  if (json == null) {
-    return json;
-  }
-  return {
-    valueId: json["valueId"],
-    value: json["value"] == null ? undefined : json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		valueId: json["valueId"],
+		value: json["value"] == null ? undefined : json["value"],
+	};
 }
 
 export function RowAttributeDefinitionValueToJSON(
-  json: any
+	json: any,
 ): RowAttributeDefinitionValue {
-  return RowAttributeDefinitionValueToJSONTyped(json, false);
+	return RowAttributeDefinitionValueToJSONTyped(json, false);
 }
 
 export function RowAttributeDefinitionValueToJSONTyped(
-  value?: RowAttributeDefinitionValue | null,
-  ignoreDiscriminator: boolean = false
+	value?: RowAttributeDefinitionValue | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    valueId: value["valueId"],
-    value: value["value"],
-  };
+	return {
+		valueId: value["valueId"],
+		value: value["value"],
+	};
 }

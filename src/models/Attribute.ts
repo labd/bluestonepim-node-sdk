@@ -15,31 +15,31 @@
 import { mapValues } from "../runtime";
 import type { ColumnAttribute } from "./ColumnAttribute";
 import {
-  ColumnAttributeFromJSON,
-  ColumnAttributeFromJSONTyped,
-  ColumnAttributeToJSON,
-  ColumnAttributeToJSONTyped,
+	ColumnAttributeFromJSON,
+	ColumnAttributeFromJSONTyped,
+	ColumnAttributeToJSON,
+	ColumnAttributeToJSONTyped,
 } from "./ColumnAttribute";
 import type { DictionaryValue } from "./DictionaryValue";
 import {
-  DictionaryValueFromJSON,
-  DictionaryValueFromJSONTyped,
-  DictionaryValueToJSON,
-  DictionaryValueToJSONTyped,
+	DictionaryValueFromJSON,
+	DictionaryValueFromJSONTyped,
+	DictionaryValueToJSON,
+	DictionaryValueToJSONTyped,
 } from "./DictionaryValue";
 import type { MatrixAttributeColumn } from "./MatrixAttributeColumn";
 import {
-  MatrixAttributeColumnFromJSON,
-  MatrixAttributeColumnFromJSONTyped,
-  MatrixAttributeColumnToJSON,
-  MatrixAttributeColumnToJSONTyped,
+	MatrixAttributeColumnFromJSON,
+	MatrixAttributeColumnFromJSONTyped,
+	MatrixAttributeColumnToJSON,
+	MatrixAttributeColumnToJSONTyped,
 } from "./MatrixAttributeColumn";
 import type { SelectValue } from "./SelectValue";
 import {
-  SelectValueFromJSON,
-  SelectValueFromJSONTyped,
-  SelectValueToJSON,
-  SelectValueToJSONTyped,
+	SelectValueFromJSON,
+	SelectValueFromJSONTyped,
+	SelectValueToJSON,
+	SelectValueToJSONTyped,
 } from "./SelectValue";
 
 /**
@@ -48,189 +48,189 @@ import {
  * @interface Attribute
  */
 export interface Attribute {
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  unit?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  groupName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  groupNumber?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  dataType?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Attribute
-   */
-  isCompound?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof Attribute
-   */
-  valueType?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Attribute
-   */
-  definingAttribute?: boolean;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof Attribute
-   */
-  values: Array<string>;
-  /**
-   *
-   * @type {Array<SelectValue>}
-   * @memberof Attribute
-   */
-  select?: Array<SelectValue>;
-  /**
-   *
-   * @type {Array<ColumnAttribute>}
-   * @memberof Attribute
-   */
-  column?: Array<ColumnAttribute>;
-  /**
-   *
-   * @type {Array<MatrixAttributeColumn>}
-   * @memberof Attribute
-   */
-  matrix?: Array<MatrixAttributeColumn>;
-  /**
-   *
-   * @type {Array<DictionaryValue>}
-   * @memberof Attribute
-   */
-  dictionary?: Array<DictionaryValue>;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	name?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	unit?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	groupName?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	groupNumber?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	dataType?: string;
+	/**
+	 *
+	 * @type {boolean}
+	 * @memberof Attribute
+	 */
+	isCompound?: boolean;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof Attribute
+	 */
+	valueType?: string;
+	/**
+	 *
+	 * @type {boolean}
+	 * @memberof Attribute
+	 */
+	definingAttribute?: boolean;
+	/**
+	 *
+	 * @type {Array<string>}
+	 * @memberof Attribute
+	 */
+	values: Array<string>;
+	/**
+	 *
+	 * @type {Array<SelectValue>}
+	 * @memberof Attribute
+	 */
+	select?: Array<SelectValue>;
+	/**
+	 *
+	 * @type {Array<ColumnAttribute>}
+	 * @memberof Attribute
+	 */
+	column?: Array<ColumnAttribute>;
+	/**
+	 *
+	 * @type {Array<MatrixAttributeColumn>}
+	 * @memberof Attribute
+	 */
+	matrix?: Array<MatrixAttributeColumn>;
+	/**
+	 *
+	 * @type {Array<DictionaryValue>}
+	 * @memberof Attribute
+	 */
+	dictionary?: Array<DictionaryValue>;
 }
 
 /**
  * Check if a given object implements the Attribute interface.
  */
 export function instanceOfAttribute(value: object): value is Attribute {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("values" in value) || value["values"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("values" in value) || value["values"] === undefined) return false;
+	return true;
 }
 
 export function AttributeFromJSON(json: any): Attribute {
-  return AttributeFromJSONTyped(json, false);
+	return AttributeFromJSONTyped(json, false);
 }
 
 export function AttributeFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): Attribute {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"] == null ? undefined : json["name"],
-    number: json["number"] == null ? undefined : json["number"],
-    unit: json["unit"] == null ? undefined : json["unit"],
-    groupName: json["groupName"] == null ? undefined : json["groupName"],
-    groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
-    dataType: json["dataType"] == null ? undefined : json["dataType"],
-    isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
-    valueType: json["valueType"] == null ? undefined : json["valueType"],
-    definingAttribute:
-      json["definingAttribute"] == null ? undefined : json["definingAttribute"],
-    values: json["values"],
-    select:
-      json["select"] == null
-        ? undefined
-        : (json["select"] as Array<any>).map(SelectValueFromJSON),
-    column:
-      json["column"] == null
-        ? undefined
-        : (json["column"] as Array<any>).map(ColumnAttributeFromJSON),
-    matrix:
-      json["matrix"] == null
-        ? undefined
-        : (json["matrix"] as Array<any>).map(MatrixAttributeColumnFromJSON),
-    dictionary:
-      json["dictionary"] == null
-        ? undefined
-        : (json["dictionary"] as Array<any>).map(DictionaryValueFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"] == null ? undefined : json["name"],
+		number: json["number"] == null ? undefined : json["number"],
+		unit: json["unit"] == null ? undefined : json["unit"],
+		groupName: json["groupName"] == null ? undefined : json["groupName"],
+		groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
+		dataType: json["dataType"] == null ? undefined : json["dataType"],
+		isCompound: json["isCompound"] == null ? undefined : json["isCompound"],
+		valueType: json["valueType"] == null ? undefined : json["valueType"],
+		definingAttribute:
+			json["definingAttribute"] == null ? undefined : json["definingAttribute"],
+		values: json["values"],
+		select:
+			json["select"] == null
+				? undefined
+				: (json["select"] as Array<any>).map(SelectValueFromJSON),
+		column:
+			json["column"] == null
+				? undefined
+				: (json["column"] as Array<any>).map(ColumnAttributeFromJSON),
+		matrix:
+			json["matrix"] == null
+				? undefined
+				: (json["matrix"] as Array<any>).map(MatrixAttributeColumnFromJSON),
+		dictionary:
+			json["dictionary"] == null
+				? undefined
+				: (json["dictionary"] as Array<any>).map(DictionaryValueFromJSON),
+	};
 }
 
 export function AttributeToJSON(json: any): Attribute {
-  return AttributeToJSONTyped(json, false);
+	return AttributeToJSONTyped(json, false);
 }
 
 export function AttributeToJSONTyped(
-  value?: Attribute | null,
-  ignoreDiscriminator: boolean = false
+	value?: Attribute | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    number: value["number"],
-    unit: value["unit"],
-    groupName: value["groupName"],
-    groupNumber: value["groupNumber"],
-    dataType: value["dataType"],
-    isCompound: value["isCompound"],
-    valueType: value["valueType"],
-    definingAttribute: value["definingAttribute"],
-    values: value["values"],
-    select:
-      value["select"] == null
-        ? undefined
-        : (value["select"] as Array<any>).map(SelectValueToJSON),
-    column:
-      value["column"] == null
-        ? undefined
-        : (value["column"] as Array<any>).map(ColumnAttributeToJSON),
-    matrix:
-      value["matrix"] == null
-        ? undefined
-        : (value["matrix"] as Array<any>).map(MatrixAttributeColumnToJSON),
-    dictionary:
-      value["dictionary"] == null
-        ? undefined
-        : (value["dictionary"] as Array<any>).map(DictionaryValueToJSON),
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		number: value["number"],
+		unit: value["unit"],
+		groupName: value["groupName"],
+		groupNumber: value["groupNumber"],
+		dataType: value["dataType"],
+		isCompound: value["isCompound"],
+		valueType: value["valueType"],
+		definingAttribute: value["definingAttribute"],
+		values: value["values"],
+		select:
+			value["select"] == null
+				? undefined
+				: (value["select"] as Array<any>).map(SelectValueToJSON),
+		column:
+			value["column"] == null
+				? undefined
+				: (value["column"] as Array<any>).map(ColumnAttributeToJSON),
+		matrix:
+			value["matrix"] == null
+				? undefined
+				: (value["matrix"] as Array<any>).map(MatrixAttributeColumnToJSON),
+		dictionary:
+			value["dictionary"] == null
+				? undefined
+				: (value["dictionary"] as Array<any>).map(DictionaryValueToJSON),
+	};
 }
