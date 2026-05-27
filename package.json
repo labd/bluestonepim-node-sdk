@@ -29,6 +29,7 @@
     "check": "pnpm lint",
     "format": "eslint src --fix && prettier --write .",
     "lint": "eslint src && prettier --check .",
+    "test": "vitest run",
     "sdk:generate": "openapi-generator-cli generate -i https://docs.api.bluestonepim.com/openapi/665580c80a124b001f16a96c -g typescript-fetch -o src/ --additional-properties=prefixParameterInterfaces=true && pnpm format",
     "publish:ci": "pnpm build && pnpm changeset publish"
   },
