@@ -30,6 +30,7 @@
     "format": "eslint src --fix && prettier --write .",
     "lint": "eslint src && prettier --check .",
     "test": "vitest run",
+    "typecheck": "tsgo --noEmit",
     "sdk:generate": "openapi-generator-cli generate -i https://docs.api.bluestonepim.com/openapi/665580c80a124b001f16a96c -g typescript-fetch -o src/ --additional-properties=prefixParameterInterfaces=true && pnpm format",
     "publish:ci": "pnpm build && pnpm changeset publish"
   },
@@ -39,6 +40,7 @@
     "@types/node": "^24.12.4",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "@typescript/native-preview": "7.0.0-dev.20260519.1",
     "@vitest/coverage-v8": "^2.1.6",
     "eslint": "^8.57.0",
     "eslint-plugin-sort-class-members": "^1.20.0",
@@ -47,6 +49,7 @@
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-packagejson": "^2.4.12",
     "tsup": "^8.3.5",
+    "typescript": "^5.9.3",
     "vite-tsconfig-paths": "5.1.3",
     "vitest": "2.1.6"
   },
