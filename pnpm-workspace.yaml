@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: false # postinstall not necessary for functionality, see https://github.com/evanw/esbuild/issues/4085
+  "@openapitools/openapi-generator-cli": false # JAR is downloaded lazily on first sdk:generate invocation
+  "@nestjs/core": false # transitive of openapi-generator-cli; postinstall only prints a sponsorship message
+minimumReleaseAge: 10080 # 7 days
