@@ -14,14 +14,10 @@ permissions:
   contents: read
 
 jobs:
-  validate:
-    name: Validate on Node ${{ matrix.node }} and ${{ matrix.os }}
+  lint:
+    name: Lint
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
-    strategy:
-      matrix:
-        node: ["22.x", "24.x"]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     env:
       CI: true
     steps:
@@ -34,7 +30,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: ${{ matrix.node }}
+          node-version-file: package.json
           cache: pnpm
 
       - name: Install dependencies
@@ -55,6 +51,57 @@ jobs:
         if: ${{ !cancelled() }}
         run: pnpm lint:knip
 
+      - name: Summary
+        if: ${{ !cancelled() }}
+        shell: bash
+        env:
+          LINT: ${{ steps.lint.outcome }}
+          FORMAT: ${{ steps.format.outcome }}
+          KNIP: ${{ steps.knip.outcome }}
+        run: |
+          icon() {
+            case "$1" in
+              success) echo "✅ Pass" ;;
+              failure) echo "❌ Fail" ;;
+              skipped) echo "⏭️ Skip" ;;
+              *)       echo "❔ $1" ;;
+            esac
+          }
+          {
+            echo "## Lint"
+            echo ""
+            echo "| Check  | Result  |"
+            echo "| ------ | ------- |"
+            echo "| Lint   | $(icon "$LINT") |"
+            echo "| Format | $(icon "$FORMAT") |"
+            echo "| Knip   | $(icon "$KNIP") |"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+  validate:
+    name: Validate on Node ${{ matrix.node }}
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
+    strategy:
+      matrix:
+        node: ["22.x", "24.x"]
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
+        name: Install pnpm
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Typecheck
         id: typecheck
         if: ${{ !cancelled() }}
@@ -74,9 +121,6 @@ jobs:
         if: ${{ !cancelled() }}
         shell: bash
         env:
-          LINT: ${{ steps.lint.outcome }}
-          FORMAT: ${{ steps.format.outcome }}
-          KNIP: ${{ steps.knip.outcome }}
           TYPECHECK: ${{ steps.typecheck.outcome }}
           TEST: ${{ steps.test.outcome }}
           BUILD: ${{ steps.build.outcome }}
@@ -90,13 +134,10 @@ jobs:
             esac
           }
           {
-            echo "## Validate (${{ matrix.os }}, Node ${{ matrix.node }})"
+            echo "## Validate (Node ${{ matrix.node }})"
             echo ""
             echo "| Check     | Result  |"
             echo "| --------- | ------- |"
-            echo "| Lint      | $(icon "$LINT") |"
-            echo "| Format    | $(icon "$FORMAT") |"
-            echo "| Knip      | $(icon "$KNIP") |"
             echo "| Typecheck | $(icon "$TYPECHECK") |"
             echo "| Test      | $(icon "$TEST") |"
             echo "| Build     | $(icon "$BUILD") |"
@@ -106,7 +147,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: validate
+    needs: [lint, validate]
     steps:
       - name: Checkout repo
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
