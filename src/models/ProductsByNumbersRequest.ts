@@ -19,57 +19,57 @@ import { mapValues } from "../runtime";
  * @interface ProductsByNumbersRequest
  */
 export interface ProductsByNumbersRequest {
-  /**
-   * Product numbers to be returned.
-   * @type {Array<string>}
-   * @memberof ProductsByNumbersRequest
-   */
-  numbers: Array<string>;
+	/**
+	 * Product numbers to be returned.
+	 * @type {Array<string>}
+	 * @memberof ProductsByNumbersRequest
+	 */
+	numbers: Array<string>;
 }
 
 /**
  * Check if a given object implements the ProductsByNumbersRequest interface.
  */
 export function instanceOfProductsByNumbersRequest(
-  value: object
+	value: object,
 ): value is ProductsByNumbersRequest {
-  if (!("numbers" in value) || value["numbers"] === undefined) return false;
-  return true;
+	if (!("numbers" in value) || value["numbers"] === undefined) return false;
+	return true;
 }
 
 export function ProductsByNumbersRequestFromJSON(
-  json: any
+	json: any,
 ): ProductsByNumbersRequest {
-  return ProductsByNumbersRequestFromJSONTyped(json, false);
+	return ProductsByNumbersRequestFromJSONTyped(json, false);
 }
 
 export function ProductsByNumbersRequestFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ProductsByNumbersRequest {
-  if (json == null) {
-    return json;
-  }
-  return {
-    numbers: json["numbers"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		numbers: json["numbers"],
+	};
 }
 
 export function ProductsByNumbersRequestToJSON(
-  json: any
+	json: any,
 ): ProductsByNumbersRequest {
-  return ProductsByNumbersRequestToJSONTyped(json, false);
+	return ProductsByNumbersRequestToJSONTyped(json, false);
 }
 
 export function ProductsByNumbersRequestToJSONTyped(
-  value?: ProductsByNumbersRequest | null,
-  ignoreDiscriminator: boolean = false
+	value?: ProductsByNumbersRequest | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    numbers: value["numbers"],
-  };
+	return {
+		numbers: value["numbers"],
+	};
 }

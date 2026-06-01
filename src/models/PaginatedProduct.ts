@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { Product } from "./Product";
 import {
-  ProductFromJSON,
-  ProductFromJSONTyped,
-  ProductToJSON,
-  ProductToJSONTyped,
+	ProductFromJSON,
+	ProductFromJSONTyped,
+	ProductToJSON,
+	ProductToJSONTyped,
 } from "./Product";
 
 /**
@@ -27,63 +27,63 @@ import {
  * @interface PaginatedProduct
  */
 export interface PaginatedProduct {
-  /**
-   *
-   * @type {number}
-   * @memberof PaginatedProduct
-   */
-  totalCount: number;
-  /**
-   *
-   * @type {Array<Product>}
-   * @memberof PaginatedProduct
-   */
-  results: Array<Product>;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PaginatedProduct
+	 */
+	totalCount: number;
+	/**
+	 *
+	 * @type {Array<Product>}
+	 * @memberof PaginatedProduct
+	 */
+	results: Array<Product>;
 }
 
 /**
  * Check if a given object implements the PaginatedProduct interface.
  */
 export function instanceOfPaginatedProduct(
-  value: object
+	value: object,
 ): value is PaginatedProduct {
-  if (!("totalCount" in value) || value["totalCount"] === undefined)
-    return false;
-  if (!("results" in value) || value["results"] === undefined) return false;
-  return true;
+	if (!("totalCount" in value) || value["totalCount"] === undefined)
+		return false;
+	if (!("results" in value) || value["results"] === undefined) return false;
+	return true;
 }
 
 export function PaginatedProductFromJSON(json: any): PaginatedProduct {
-  return PaginatedProductFromJSONTyped(json, false);
+	return PaginatedProductFromJSONTyped(json, false);
 }
 
 export function PaginatedProductFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PaginatedProduct {
-  if (json == null) {
-    return json;
-  }
-  return {
-    totalCount: json["totalCount"],
-    results: (json["results"] as Array<any>).map(ProductFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		totalCount: json["totalCount"],
+		results: (json["results"] as Array<any>).map(ProductFromJSON),
+	};
 }
 
 export function PaginatedProductToJSON(json: any): PaginatedProduct {
-  return PaginatedProductToJSONTyped(json, false);
+	return PaginatedProductToJSONTyped(json, false);
 }
 
 export function PaginatedProductToJSONTyped(
-  value?: PaginatedProduct | null,
-  ignoreDiscriminator: boolean = false
+	value?: PaginatedProduct | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    totalCount: value["totalCount"],
-    results: (value["results"] as Array<any>).map(ProductToJSON),
-  };
+	return {
+		totalCount: value["totalCount"],
+		results: (value["results"] as Array<any>).map(ProductToJSON),
+	};
 }

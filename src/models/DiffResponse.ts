@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { DiffType } from "./DiffType";
 import {
-  DiffTypeFromJSON,
-  DiffTypeFromJSONTyped,
-  DiffTypeToJSON,
-  DiffTypeToJSONTyped,
+	DiffTypeFromJSON,
+	DiffTypeFromJSONTyped,
+	DiffTypeToJSON,
+	DiffTypeToJSONTyped,
 } from "./DiffType";
 
 /**
@@ -27,60 +27,60 @@ import {
  * @interface DiffResponse
  */
 export interface DiffResponse {
-  /**
-   *
-   * @type {string}
-   * @memberof DiffResponse
-   */
-  id: string;
-  /**
-   *
-   * @type {DiffType}
-   * @memberof DiffResponse
-   */
-  diffType: DiffType;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof DiffResponse
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {DiffType}
+	 * @memberof DiffResponse
+	 */
+	diffType: DiffType;
 }
 
 /**
  * Check if a given object implements the DiffResponse interface.
  */
 export function instanceOfDiffResponse(value: object): value is DiffResponse {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("diffType" in value) || value["diffType"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("diffType" in value) || value["diffType"] === undefined) return false;
+	return true;
 }
 
 export function DiffResponseFromJSON(json: any): DiffResponse {
-  return DiffResponseFromJSONTyped(json, false);
+	return DiffResponseFromJSONTyped(json, false);
 }
 
 export function DiffResponseFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): DiffResponse {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    diffType: DiffTypeFromJSON(json["diffType"]),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		diffType: DiffTypeFromJSON(json["diffType"]),
+	};
 }
 
 export function DiffResponseToJSON(json: any): DiffResponse {
-  return DiffResponseToJSONTyped(json, false);
+	return DiffResponseToJSONTyped(json, false);
 }
 
 export function DiffResponseToJSONTyped(
-  value?: DiffResponse | null,
-  ignoreDiscriminator: boolean = false
+	value?: DiffResponse | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    diffType: DiffTypeToJSON(value["diffType"]),
-  };
+	return {
+		id: value["id"],
+		diffType: DiffTypeToJSON(value["diffType"]),
+	};
 }

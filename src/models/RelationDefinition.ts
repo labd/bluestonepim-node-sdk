@@ -19,86 +19,86 @@ import { mapValues } from "../runtime";
  * @interface RelationDefinition
  */
 export interface RelationDefinition {
-  /**
-   *
-   * @type {string}
-   * @memberof RelationDefinition
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof RelationDefinition
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof RelationDefinition
-   */
-  name: string;
-  /**
-   *
-   * @type {string}
-   * @memberof RelationDefinition
-   */
-  reverseName?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof RelationDefinition
-   */
-  order?: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof RelationDefinition
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof RelationDefinition
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof RelationDefinition
+	 */
+	name: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof RelationDefinition
+	 */
+	reverseName?: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof RelationDefinition
+	 */
+	order?: number;
 }
 
 /**
  * Check if a given object implements the RelationDefinition interface.
  */
 export function instanceOfRelationDefinition(
-  value: object
+	value: object,
 ): value is RelationDefinition {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("name" in value) || value["name"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("name" in value) || value["name"] === undefined) return false;
+	return true;
 }
 
 export function RelationDefinitionFromJSON(json: any): RelationDefinition {
-  return RelationDefinitionFromJSONTyped(json, false);
+	return RelationDefinitionFromJSONTyped(json, false);
 }
 
 export function RelationDefinitionFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): RelationDefinition {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    number: json["number"] == null ? undefined : json["number"],
-    name: json["name"],
-    reverseName: json["reverseName"] == null ? undefined : json["reverseName"],
-    order: json["order"] == null ? undefined : json["order"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		number: json["number"] == null ? undefined : json["number"],
+		name: json["name"],
+		reverseName: json["reverseName"] == null ? undefined : json["reverseName"],
+		order: json["order"] == null ? undefined : json["order"],
+	};
 }
 
 export function RelationDefinitionToJSON(json: any): RelationDefinition {
-  return RelationDefinitionToJSONTyped(json, false);
+	return RelationDefinitionToJSONTyped(json, false);
 }
 
 export function RelationDefinitionToJSONTyped(
-  value?: RelationDefinition | null,
-  ignoreDiscriminator: boolean = false
+	value?: RelationDefinition | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    number: value["number"],
-    name: value["name"],
-    reverseName: value["reverseName"],
-    order: value["order"],
-  };
+	return {
+		id: value["id"],
+		number: value["number"],
+		name: value["name"],
+		reverseName: value["reverseName"],
+		order: value["order"],
+	};
 }

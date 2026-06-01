@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { MatrixAttributeRow } from "./MatrixAttributeRow";
 import {
-  MatrixAttributeRowFromJSON,
-  MatrixAttributeRowFromJSONTyped,
-  MatrixAttributeRowToJSON,
-  MatrixAttributeRowToJSONTyped,
+	MatrixAttributeRowFromJSON,
+	MatrixAttributeRowFromJSONTyped,
+	MatrixAttributeRowToJSON,
+	MatrixAttributeRowToJSONTyped,
 } from "./MatrixAttributeRow";
 
 /**
@@ -27,77 +27,77 @@ import {
  * @interface MatrixAttributeColumn
  */
 export interface MatrixAttributeColumn {
-  /**
-   *
-   * @type {string}
-   * @memberof MatrixAttributeColumn
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof MatrixAttributeColumn
-   */
-  name?: string;
-  /**
-   *
-   * @type {Array<MatrixAttributeRow>}
-   * @memberof MatrixAttributeColumn
-   */
-  rows?: Array<MatrixAttributeRow>;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof MatrixAttributeColumn
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof MatrixAttributeColumn
+	 */
+	name?: string;
+	/**
+	 *
+	 * @type {Array<MatrixAttributeRow>}
+	 * @memberof MatrixAttributeColumn
+	 */
+	rows?: Array<MatrixAttributeRow>;
 }
 
 /**
  * Check if a given object implements the MatrixAttributeColumn interface.
  */
 export function instanceOfMatrixAttributeColumn(
-  value: object
+	value: object,
 ): value is MatrixAttributeColumn {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	return true;
 }
 
 export function MatrixAttributeColumnFromJSON(
-  json: any
+	json: any,
 ): MatrixAttributeColumn {
-  return MatrixAttributeColumnFromJSONTyped(json, false);
+	return MatrixAttributeColumnFromJSONTyped(json, false);
 }
 
 export function MatrixAttributeColumnFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): MatrixAttributeColumn {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"] == null ? undefined : json["name"],
-    rows:
-      json["rows"] == null
-        ? undefined
-        : (json["rows"] as Array<any>).map(MatrixAttributeRowFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"] == null ? undefined : json["name"],
+		rows:
+			json["rows"] == null
+				? undefined
+				: (json["rows"] as Array<any>).map(MatrixAttributeRowFromJSON),
+	};
 }
 
 export function MatrixAttributeColumnToJSON(json: any): MatrixAttributeColumn {
-  return MatrixAttributeColumnToJSONTyped(json, false);
+	return MatrixAttributeColumnToJSONTyped(json, false);
 }
 
 export function MatrixAttributeColumnToJSONTyped(
-  value?: MatrixAttributeColumn | null,
-  ignoreDiscriminator: boolean = false
+	value?: MatrixAttributeColumn | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    rows:
-      value["rows"] == null
-        ? undefined
-        : (value["rows"] as Array<any>).map(MatrixAttributeRowToJSON),
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		rows:
+			value["rows"] == null
+				? undefined
+				: (value["rows"] as Array<any>).map(MatrixAttributeRowToJSON),
+	};
 }

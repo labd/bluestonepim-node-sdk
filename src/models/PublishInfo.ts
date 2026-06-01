@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { PublishStateValues } from "./PublishStateValues";
 import {
-  PublishStateValuesFromJSON,
-  PublishStateValuesFromJSONTyped,
-  PublishStateValuesToJSON,
-  PublishStateValuesToJSONTyped,
+	PublishStateValuesFromJSON,
+	PublishStateValuesFromJSONTyped,
+	PublishStateValuesToJSON,
+	PublishStateValuesToJSONTyped,
 } from "./PublishStateValues";
 
 /**
@@ -27,104 +27,104 @@ import {
  * @interface PublishInfo
  */
 export interface PublishInfo {
-  /**
-   * mongo identifier of the collection.
-   * @type {string}
-   * @memberof PublishInfo
-   */
-  id: string;
-  /**
-   *
-   * @type {PublishStateValues}
-   * @memberof PublishInfo
-   */
-  state: PublishStateValues;
-  /**
-   *
-   * @type {number}
-   * @memberof PublishInfo
-   */
-  createdAt: number;
-  /**
-   *
-   * @type {number}
-   * @memberof PublishInfo
-   */
-  disposedAt?: number;
-  /**
-   *
-   * @type {number}
-   * @memberof PublishInfo
-   */
-  cleanedAt?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof PublishInfo
-   */
-  contextId: string;
-  /**
-   *
-   * @type {string}
-   * @memberof PublishInfo
-   */
-  contextName: string;
+	/**
+	 * mongo identifier of the collection.
+	 * @type {string}
+	 * @memberof PublishInfo
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {PublishStateValues}
+	 * @memberof PublishInfo
+	 */
+	state: PublishStateValues;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PublishInfo
+	 */
+	createdAt: number;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PublishInfo
+	 */
+	disposedAt?: number;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PublishInfo
+	 */
+	cleanedAt?: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof PublishInfo
+	 */
+	contextId: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof PublishInfo
+	 */
+	contextName: string;
 }
 
 /**
  * Check if a given object implements the PublishInfo interface.
  */
 export function instanceOfPublishInfo(value: object): value is PublishInfo {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("state" in value) || value["state"] === undefined) return false;
-  if (!("createdAt" in value) || value["createdAt"] === undefined) return false;
-  if (!("contextId" in value) || value["contextId"] === undefined) return false;
-  if (!("contextName" in value) || value["contextName"] === undefined)
-    return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("state" in value) || value["state"] === undefined) return false;
+	if (!("createdAt" in value) || value["createdAt"] === undefined) return false;
+	if (!("contextId" in value) || value["contextId"] === undefined) return false;
+	if (!("contextName" in value) || value["contextName"] === undefined)
+		return false;
+	return true;
 }
 
 export function PublishInfoFromJSON(json: any): PublishInfo {
-  return PublishInfoFromJSONTyped(json, false);
+	return PublishInfoFromJSONTyped(json, false);
 }
 
 export function PublishInfoFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PublishInfo {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    state: PublishStateValuesFromJSON(json["state"]),
-    createdAt: json["createdAt"],
-    disposedAt: json["disposedAt"] == null ? undefined : json["disposedAt"],
-    cleanedAt: json["cleanedAt"] == null ? undefined : json["cleanedAt"],
-    contextId: json["contextId"],
-    contextName: json["contextName"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		state: PublishStateValuesFromJSON(json["state"]),
+		createdAt: json["createdAt"],
+		disposedAt: json["disposedAt"] == null ? undefined : json["disposedAt"],
+		cleanedAt: json["cleanedAt"] == null ? undefined : json["cleanedAt"],
+		contextId: json["contextId"],
+		contextName: json["contextName"],
+	};
 }
 
 export function PublishInfoToJSON(json: any): PublishInfo {
-  return PublishInfoToJSONTyped(json, false);
+	return PublishInfoToJSONTyped(json, false);
 }
 
 export function PublishInfoToJSONTyped(
-  value?: PublishInfo | null,
-  ignoreDiscriminator: boolean = false
+	value?: PublishInfo | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    state: PublishStateValuesToJSON(value["state"]),
-    createdAt: value["createdAt"],
-    disposedAt: value["disposedAt"],
-    cleanedAt: value["cleanedAt"],
-    contextId: value["contextId"],
-    contextName: value["contextName"],
-  };
+	return {
+		id: value["id"],
+		state: PublishStateValuesToJSON(value["state"]),
+		createdAt: value["createdAt"],
+		disposedAt: value["disposedAt"],
+		cleanedAt: value["cleanedAt"],
+		contextId: value["contextId"],
+		contextName: value["contextName"],
+	};
 }

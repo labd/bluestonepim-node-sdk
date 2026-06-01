@@ -19,75 +19,75 @@ import { mapValues } from "../runtime";
  * @interface SelectValue
  */
 export interface SelectValue {
-  /**
-   *
-   * @type {string}
-   * @memberof SelectValue
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof SelectValue
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof SelectValue
-   */
-  value?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof SelectValue
-   */
-  metadata?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof SelectValue
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof SelectValue
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof SelectValue
+	 */
+	value?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof SelectValue
+	 */
+	metadata?: string;
 }
 
 /**
  * Check if a given object implements the SelectValue interface.
  */
 export function instanceOfSelectValue(value: object): value is SelectValue {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	return true;
 }
 
 export function SelectValueFromJSON(json: any): SelectValue {
-  return SelectValueFromJSONTyped(json, false);
+	return SelectValueFromJSONTyped(json, false);
 }
 
 export function SelectValueFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): SelectValue {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    number: json["number"] == null ? undefined : json["number"],
-    value: json["value"] == null ? undefined : json["value"],
-    metadata: json["metadata"] == null ? undefined : json["metadata"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		number: json["number"] == null ? undefined : json["number"],
+		value: json["value"] == null ? undefined : json["value"],
+		metadata: json["metadata"] == null ? undefined : json["metadata"],
+	};
 }
 
 export function SelectValueToJSON(json: any): SelectValue {
-  return SelectValueToJSONTyped(json, false);
+	return SelectValueToJSONTyped(json, false);
 }
 
 export function SelectValueToJSONTyped(
-  value?: SelectValue | null,
-  ignoreDiscriminator: boolean = false
+	value?: SelectValue | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    number: value["number"],
-    value: value["value"],
-    metadata: value["metadata"],
-  };
+	return {
+		id: value["id"],
+		number: value["number"],
+		value: value["value"],
+		metadata: value["metadata"],
+	};
 }

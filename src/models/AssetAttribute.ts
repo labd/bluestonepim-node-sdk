@@ -15,17 +15,17 @@
 import { mapValues } from "../runtime";
 import type { DictionaryValue } from "./DictionaryValue";
 import {
-  DictionaryValueFromJSON,
-  DictionaryValueFromJSONTyped,
-  DictionaryValueToJSON,
-  DictionaryValueToJSONTyped,
+	DictionaryValueFromJSON,
+	DictionaryValueFromJSONTyped,
+	DictionaryValueToJSON,
+	DictionaryValueToJSONTyped,
 } from "./DictionaryValue";
 import type { SelectValue } from "./SelectValue";
 import {
-  SelectValueFromJSON,
-  SelectValueFromJSONTyped,
-  SelectValueToJSON,
-  SelectValueToJSONTyped,
+	SelectValueFromJSON,
+	SelectValueFromJSONTyped,
+	SelectValueToJSON,
+	SelectValueToJSONTyped,
 } from "./SelectValue";
 
 /**
@@ -34,155 +34,155 @@ import {
  * @interface AssetAttribute
  */
 export interface AssetAttribute {
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  unit?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  groupName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  groupNumber?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  dataType?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AssetAttribute
-   */
-  valueType?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof AssetAttribute
-   */
-  definingAttribute?: boolean;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof AssetAttribute
-   */
-  values: Array<string>;
-  /**
-   *
-   * @type {Array<SelectValue>}
-   * @memberof AssetAttribute
-   */
-  select?: Array<SelectValue>;
-  /**
-   *
-   * @type {Array<DictionaryValue>}
-   * @memberof AssetAttribute
-   */
-  dictionary?: Array<DictionaryValue>;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	name?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	unit?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	groupName?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	groupNumber?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	dataType?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof AssetAttribute
+	 */
+	valueType?: string;
+	/**
+	 *
+	 * @type {boolean}
+	 * @memberof AssetAttribute
+	 */
+	definingAttribute?: boolean;
+	/**
+	 *
+	 * @type {Array<string>}
+	 * @memberof AssetAttribute
+	 */
+	values: Array<string>;
+	/**
+	 *
+	 * @type {Array<SelectValue>}
+	 * @memberof AssetAttribute
+	 */
+	select?: Array<SelectValue>;
+	/**
+	 *
+	 * @type {Array<DictionaryValue>}
+	 * @memberof AssetAttribute
+	 */
+	dictionary?: Array<DictionaryValue>;
 }
 
 /**
  * Check if a given object implements the AssetAttribute interface.
  */
 export function instanceOfAssetAttribute(
-  value: object
+	value: object,
 ): value is AssetAttribute {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("values" in value) || value["values"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("values" in value) || value["values"] === undefined) return false;
+	return true;
 }
 
 export function AssetAttributeFromJSON(json: any): AssetAttribute {
-  return AssetAttributeFromJSONTyped(json, false);
+	return AssetAttributeFromJSONTyped(json, false);
 }
 
 export function AssetAttributeFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): AssetAttribute {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"] == null ? undefined : json["name"],
-    number: json["number"] == null ? undefined : json["number"],
-    unit: json["unit"] == null ? undefined : json["unit"],
-    groupName: json["groupName"] == null ? undefined : json["groupName"],
-    groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
-    dataType: json["dataType"] == null ? undefined : json["dataType"],
-    valueType: json["valueType"] == null ? undefined : json["valueType"],
-    definingAttribute:
-      json["definingAttribute"] == null ? undefined : json["definingAttribute"],
-    values: json["values"],
-    select:
-      json["select"] == null
-        ? undefined
-        : (json["select"] as Array<any>).map(SelectValueFromJSON),
-    dictionary:
-      json["dictionary"] == null
-        ? undefined
-        : (json["dictionary"] as Array<any>).map(DictionaryValueFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"] == null ? undefined : json["name"],
+		number: json["number"] == null ? undefined : json["number"],
+		unit: json["unit"] == null ? undefined : json["unit"],
+		groupName: json["groupName"] == null ? undefined : json["groupName"],
+		groupNumber: json["groupNumber"] == null ? undefined : json["groupNumber"],
+		dataType: json["dataType"] == null ? undefined : json["dataType"],
+		valueType: json["valueType"] == null ? undefined : json["valueType"],
+		definingAttribute:
+			json["definingAttribute"] == null ? undefined : json["definingAttribute"],
+		values: json["values"],
+		select:
+			json["select"] == null
+				? undefined
+				: (json["select"] as Array<any>).map(SelectValueFromJSON),
+		dictionary:
+			json["dictionary"] == null
+				? undefined
+				: (json["dictionary"] as Array<any>).map(DictionaryValueFromJSON),
+	};
 }
 
 export function AssetAttributeToJSON(json: any): AssetAttribute {
-  return AssetAttributeToJSONTyped(json, false);
+	return AssetAttributeToJSONTyped(json, false);
 }
 
 export function AssetAttributeToJSONTyped(
-  value?: AssetAttribute | null,
-  ignoreDiscriminator: boolean = false
+	value?: AssetAttribute | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    number: value["number"],
-    unit: value["unit"],
-    groupName: value["groupName"],
-    groupNumber: value["groupNumber"],
-    dataType: value["dataType"],
-    valueType: value["valueType"],
-    definingAttribute: value["definingAttribute"],
-    values: value["values"],
-    select:
-      value["select"] == null
-        ? undefined
-        : (value["select"] as Array<any>).map(SelectValueToJSON),
-    dictionary:
-      value["dictionary"] == null
-        ? undefined
-        : (value["dictionary"] as Array<any>).map(DictionaryValueToJSON),
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		number: value["number"],
+		unit: value["unit"],
+		groupName: value["groupName"],
+		groupNumber: value["groupNumber"],
+		dataType: value["dataType"],
+		valueType: value["valueType"],
+		definingAttribute: value["definingAttribute"],
+		values: value["values"],
+		select:
+			value["select"] == null
+				? undefined
+				: (value["select"] as Array<any>).map(SelectValueToJSON),
+		dictionary:
+			value["dictionary"] == null
+				? undefined
+				: (value["dictionary"] as Array<any>).map(DictionaryValueToJSON),
+	};
 }

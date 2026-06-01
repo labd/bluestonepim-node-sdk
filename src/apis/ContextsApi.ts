@@ -15,52 +15,51 @@
 import * as runtime from "../runtime";
 import type { SegmentContextRequest } from "../models/index";
 import {
-  SegmentContextRequestFromJSON,
-  SegmentContextRequestToJSON,
+	SegmentContextRequestFromJSON,
+	SegmentContextRequestToJSON,
 } from "../models/index";
 
 /**
  *
  */
 export class ContextsApi extends runtime.BaseAPI {
-  /**
-   * lists currently available publications
-   */
-  async getSegmentInfoRaw(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<SegmentContextRequest>>> {
-    const queryParameters: any = {};
+	/**
+	 * lists currently available publications
+	 */
+	async getSegmentInfoRaw(
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<SegmentContextRequest>>> {
+		const queryParameters: any = {};
 
-    const headerParameters: runtime.HTTPHeaders = {};
+		const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
 
-    const response = await this.request(
-      {
-        path: `/contexts`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+		const response = await this.request(
+			{
+				path: `/contexts`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(SegmentContextRequestFromJSON)
-    );
-  }
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(SegmentContextRequestFromJSON),
+		);
+	}
 
-  /**
-   * lists currently available publications
-   */
-  async getSegmentInfo(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<SegmentContextRequest>> {
-    const response = await this.getSegmentInfoRaw(initOverrides);
-    return await response.value();
-  }
+	/**
+	 * lists currently available publications
+	 */
+	async getSegmentInfo(
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<SegmentContextRequest>> {
+		const response = await this.getSegmentInfoRaw(initOverrides);
+		return await response.value();
+	}
 }

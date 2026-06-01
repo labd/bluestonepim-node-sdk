@@ -19,62 +19,62 @@ import { mapValues } from "../runtime";
  * @interface StatusPapiError
  */
 export interface StatusPapiError {
-  /**
-   *
-   * @type {number}
-   * @memberof StatusPapiError
-   */
-  status: number;
-  /**
-   *
-   * @type {string}
-   * @memberof StatusPapiError
-   */
-  message: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof StatusPapiError
+	 */
+	status: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof StatusPapiError
+	 */
+	message: string;
 }
 
 /**
  * Check if a given object implements the StatusPapiError interface.
  */
 export function instanceOfStatusPapiError(
-  value: object
+	value: object,
 ): value is StatusPapiError {
-  if (!("status" in value) || value["status"] === undefined) return false;
-  if (!("message" in value) || value["message"] === undefined) return false;
-  return true;
+	if (!("status" in value) || value["status"] === undefined) return false;
+	if (!("message" in value) || value["message"] === undefined) return false;
+	return true;
 }
 
 export function StatusPapiErrorFromJSON(json: any): StatusPapiError {
-  return StatusPapiErrorFromJSONTyped(json, false);
+	return StatusPapiErrorFromJSONTyped(json, false);
 }
 
 export function StatusPapiErrorFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): StatusPapiError {
-  if (json == null) {
-    return json;
-  }
-  return {
-    status: json["status"],
-    message: json["message"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		status: json["status"],
+		message: json["message"],
+	};
 }
 
 export function StatusPapiErrorToJSON(json: any): StatusPapiError {
-  return StatusPapiErrorToJSONTyped(json, false);
+	return StatusPapiErrorToJSONTyped(json, false);
 }
 
 export function StatusPapiErrorToJSONTyped(
-  value?: StatusPapiError | null,
-  ignoreDiscriminator: boolean = false
+	value?: StatusPapiError | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    status: value["status"],
-    message: value["message"],
-  };
+	return {
+		status: value["status"],
+		message: value["message"],
+	};
 }

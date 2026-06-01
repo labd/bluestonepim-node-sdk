@@ -19,60 +19,60 @@ import { mapValues } from "../runtime";
  * @interface MetaData
  */
 export interface MetaData {
-  /**
-   *
-   * @type {string}
-   * @memberof MetaData
-   */
-  id: string;
-  /**
-   *
-   * @type {any}
-   * @memberof MetaData
-   */
-  value: any | null;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof MetaData
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {any}
+	 * @memberof MetaData
+	 */
+	value: any | null;
 }
 
 /**
  * Check if a given object implements the MetaData interface.
  */
 export function instanceOfMetaData(value: object): value is MetaData {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("value" in value) || value["value"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("value" in value) || value["value"] === undefined) return false;
+	return true;
 }
 
 export function MetaDataFromJSON(json: any): MetaData {
-  return MetaDataFromJSONTyped(json, false);
+	return MetaDataFromJSONTyped(json, false);
 }
 
 export function MetaDataFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): MetaData {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    value: json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		value: json["value"],
+	};
 }
 
 export function MetaDataToJSON(json: any): MetaData {
-  return MetaDataToJSONTyped(json, false);
+	return MetaDataToJSONTyped(json, false);
 }
 
 export function MetaDataToJSONTyped(
-  value?: MetaData | null,
-  ignoreDiscriminator: boolean = false
+	value?: MetaData | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    value: value["value"],
-  };
+	return {
+		id: value["id"],
+		value: value["value"],
+	};
 }

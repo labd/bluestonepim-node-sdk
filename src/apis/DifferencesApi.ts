@@ -15,589 +15,581 @@
 import * as runtime from "../runtime";
 import type { DiffResponse, DiffType } from "../models/index";
 import {
-  DiffResponseFromJSON,
-  DiffResponseToJSON,
-  DiffTypeFromJSON,
-  DiffTypeToJSON,
+	DiffResponseFromJSON,
+	DiffResponseToJSON,
+	DiffTypeFromJSON,
+	DiffTypeToJSON,
 } from "../models/index";
 
 export interface DifferencesApiGetAttributeDifferencesRequest {
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
-  context?: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
+	context?: string;
 }
 
 export interface DifferencesApiGetAttributeDifferencesOnSyncDeletesRequest {
-  id: string;
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
+	id: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
 }
 
 export interface DifferencesApiGetCategoryDifferencesRequest {
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
-  context?: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
+	context?: string;
 }
 
 export interface DifferencesApiGetCategoryDifferencesOnSyncDeletesRequest {
-  id: string;
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
+	id: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
 }
 
 export interface DifferencesApiGetProductDifferencesRequest {
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
-  context?: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
+	context?: string;
 }
 
 export interface DifferencesApiGetProductDifferencesOnSyncDeletesRequest {
-  id: string;
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
+	id: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
 }
 
 export interface DifferencesApiGetRelationDifferencesRequest {
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
-  context?: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
+	context?: string;
 }
 
 export interface DifferencesApiGetRelationDifferencesOnSyncDeletesRequest {
-  id: string;
-  diffType?: DiffType;
-  itemsOnPage?: number;
-  pageNo?: number;
+	id: string;
+	diffType?: DiffType;
+	itemsOnPage?: number;
+	pageNo?: number;
 }
 
 /**
  *
  */
 export class DifferencesApi extends runtime.BaseAPI {
-  /**
-   * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getAttributeDifferencesRaw(
-    requestParameters: DifferencesApiGetAttributeDifferencesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (requestParameters["context"] != null) {
-      headerParameters["context"] = String(requestParameters["context"]);
-    }
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/attributes`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getAttributeDifferences(
-    requestParameters: DifferencesApiGetAttributeDifferencesRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getAttributeDifferencesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of changed attributes with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getAttributeDifferencesOnSyncDeletesRaw(
-    requestParameters: DifferencesApiGetAttributeDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    if (requestParameters["id"] == null) {
-      throw new runtime.RequiredError(
-        "id",
-        'Required parameter "id" was null or undefined when calling getAttributeDifferencesOnSyncDeletes().'
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/sync/{id}/attributes`.replace(
-          `{${"id"}}`,
-          encodeURIComponent(String(requestParameters["id"]))
-        ),
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of changed attributes with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getAttributeDifferencesOnSyncDeletes(
-    requestParameters: DifferencesApiGetAttributeDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getAttributeDifferencesOnSyncDeletesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of changed categories during last publish  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getCategoryDifferencesRaw(
-    requestParameters: DifferencesApiGetCategoryDifferencesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (requestParameters["context"] != null) {
-      headerParameters["context"] = String(requestParameters["context"]);
-    }
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/categories`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of changed categories during last publish  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getCategoryDifferences(
-    requestParameters: DifferencesApiGetCategoryDifferencesRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getCategoryDifferencesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of differences done with a given sync.  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getCategoryDifferencesOnSyncDeletesRaw(
-    requestParameters: DifferencesApiGetCategoryDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    if (requestParameters["id"] == null) {
-      throw new runtime.RequiredError(
-        "id",
-        'Required parameter "id" was null or undefined when calling getCategoryDifferencesOnSyncDeletes().'
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/sync/{id}/categories`.replace(
-          `{${"id"}}`,
-          encodeURIComponent(String(requestParameters["id"]))
-        ),
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of differences done with a given sync.  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getCategoryDifferencesOnSyncDeletes(
-    requestParameters: DifferencesApiGetCategoryDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getCategoryDifferencesOnSyncDeletesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getProductDifferencesRaw(
-    requestParameters: DifferencesApiGetProductDifferencesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (requestParameters["context"] != null) {
-      headerParameters["context"] = String(requestParameters["context"]);
-    }
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/products`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getProductDifferences(
-    requestParameters: DifferencesApiGetProductDifferencesRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getProductDifferencesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of changed products with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getProductDifferencesOnSyncDeletesRaw(
-    requestParameters: DifferencesApiGetProductDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    if (requestParameters["id"] == null) {
-      throw new runtime.RequiredError(
-        "id",
-        'Required parameter "id" was null or undefined when calling getProductDifferencesOnSyncDeletes().'
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/sync/{id}/products`.replace(
-          `{${"id"}}`,
-          encodeURIComponent(String(requestParameters["id"]))
-        ),
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of changed products with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getProductDifferencesOnSyncDeletes(
-    requestParameters: DifferencesApiGetProductDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getProductDifferencesOnSyncDeletesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getRelationDifferencesRaw(
-    requestParameters: DifferencesApiGetRelationDifferencesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (requestParameters["context"] != null) {
-      headerParameters["context"] = String(requestParameters["context"]);
-    }
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/relations`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getRelationDifferences(
-    requestParameters: DifferencesApiGetRelationDifferencesRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getRelationDifferencesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
-
-  /**
-   * Return a set of changed relations with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getRelationDifferencesOnSyncDeletesRaw(
-    requestParameters: DifferencesApiGetRelationDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
-    if (requestParameters["id"] == null) {
-      throw new runtime.RequiredError(
-        "id",
-        'Required parameter "id" was null or undefined when calling getRelationDifferencesOnSyncDeletes().'
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters["diffType"] != null) {
-      queryParameters["diffType"] = requestParameters["diffType"];
-    }
-
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
-
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/differences/sync/{id}/relations`.replace(
-          `{${"id"}}`,
-          encodeURIComponent(String(requestParameters["id"]))
-        ),
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      jsonValue.map(DiffResponseFromJSON)
-    );
-  }
-
-  /**
-   * Return a set of changed relations with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
-   */
-  async getRelationDifferencesOnSyncDeletes(
-    requestParameters: DifferencesApiGetRelationDifferencesOnSyncDeletesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<Array<DiffResponse>> {
-    const response = await this.getRelationDifferencesOnSyncDeletesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
+	/**
+	 * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getAttributeDifferencesRaw(
+		requestParameters: DifferencesApiGetAttributeDifferencesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (requestParameters["context"] != null) {
+			headerParameters["context"] = String(requestParameters["context"]);
+		}
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/attributes`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getAttributeDifferences(
+		requestParameters: DifferencesApiGetAttributeDifferencesRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getAttributeDifferencesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of changed attributes with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getAttributeDifferencesOnSyncDeletesRaw(
+		requestParameters: DifferencesApiGetAttributeDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		if (requestParameters["id"] == null) {
+			throw new runtime.RequiredError(
+				"id",
+				'Required parameter "id" was null or undefined when calling getAttributeDifferencesOnSyncDeletes().',
+			);
+		}
+
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/sync/{id}/attributes`.replace(
+					`{${"id"}}`,
+					encodeURIComponent(String(requestParameters["id"])),
+				),
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of changed attributes with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getAttributeDifferencesOnSyncDeletes(
+		requestParameters: DifferencesApiGetAttributeDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getAttributeDifferencesOnSyncDeletesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of changed categories during last publish  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getCategoryDifferencesRaw(
+		requestParameters: DifferencesApiGetCategoryDifferencesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (requestParameters["context"] != null) {
+			headerParameters["context"] = String(requestParameters["context"]);
+		}
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/categories`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of changed categories during last publish  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getCategoryDifferences(
+		requestParameters: DifferencesApiGetCategoryDifferencesRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getCategoryDifferencesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of differences done with a given sync.  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getCategoryDifferencesOnSyncDeletesRaw(
+		requestParameters: DifferencesApiGetCategoryDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		if (requestParameters["id"] == null) {
+			throw new runtime.RequiredError(
+				"id",
+				'Required parameter "id" was null or undefined when calling getCategoryDifferencesOnSyncDeletes().',
+			);
+		}
+
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/sync/{id}/categories`.replace(
+					`{${"id"}}`,
+					encodeURIComponent(String(requestParameters["id"])),
+				),
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of differences done with a given sync.  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getCategoryDifferencesOnSyncDeletes(
+		requestParameters: DifferencesApiGetCategoryDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getCategoryDifferencesOnSyncDeletesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getProductDifferencesRaw(
+		requestParameters: DifferencesApiGetProductDifferencesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (requestParameters["context"] != null) {
+			headerParameters["context"] = String(requestParameters["context"]);
+		}
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/products`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getProductDifferences(
+		requestParameters: DifferencesApiGetProductDifferencesRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getProductDifferencesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of changed products with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getProductDifferencesOnSyncDeletesRaw(
+		requestParameters: DifferencesApiGetProductDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		if (requestParameters["id"] == null) {
+			throw new runtime.RequiredError(
+				"id",
+				'Required parameter "id" was null or undefined when calling getProductDifferencesOnSyncDeletes().',
+			);
+		}
+
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/sync/{id}/products`.replace(
+					`{${"id"}}`,
+					encodeURIComponent(String(requestParameters["id"])),
+				),
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of changed products with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getProductDifferencesOnSyncDeletes(
+		requestParameters: DifferencesApiGetProductDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getProductDifferencesOnSyncDeletesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getRelationDifferencesRaw(
+		requestParameters: DifferencesApiGetRelationDifferencesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (requestParameters["context"] != null) {
+			headerParameters["context"] = String(requestParameters["context"]);
+		}
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/relations`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of differences done during last sync operation.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getRelationDifferences(
+		requestParameters: DifferencesApiGetRelationDifferencesRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getRelationDifferencesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
+
+	/**
+	 * Return a set of changed relations with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getRelationDifferencesOnSyncDeletesRaw(
+		requestParameters: DifferencesApiGetRelationDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<Array<DiffResponse>>> {
+		if (requestParameters["id"] == null) {
+			throw new runtime.RequiredError(
+				"id",
+				'Required parameter "id" was null or undefined when calling getRelationDifferencesOnSyncDeletes().',
+			);
+		}
+
+		const queryParameters: any = {};
+
+		if (requestParameters["diffType"] != null) {
+			queryParameters["diffType"] = requestParameters["diffType"];
+		}
+
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
+
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
+
+		const headerParameters: runtime.HTTPHeaders = {};
+
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
+
+		const response = await this.request(
+			{
+				path: `/differences/sync/{id}/relations`.replace(
+					`{${"id"}}`,
+					encodeURIComponent(String(requestParameters["id"])),
+				),
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
+
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			jsonValue.map(DiffResponseFromJSON),
+		);
+	}
+
+	/**
+	 * Return a set of changed relations with given sync  <br><b>id</b> - sync id for which differences should be retrieved.  <br><b>diffType</b> - filter returned values on difference type.  <br><b>itemsOnPage</b> - amount of items to be retrieved.  <br><b>pageNo</b> - page number.
+	 */
+	async getRelationDifferencesOnSyncDeletes(
+		requestParameters: DifferencesApiGetRelationDifferencesOnSyncDeletesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<Array<DiffResponse>> {
+		const response = await this.getRelationDifferencesOnSyncDeletesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
 }

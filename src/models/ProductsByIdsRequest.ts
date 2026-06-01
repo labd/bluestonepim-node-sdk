@@ -19,53 +19,53 @@ import { mapValues } from "../runtime";
  * @interface ProductsByIdsRequest
  */
 export interface ProductsByIdsRequest {
-  /**
-   * Product ids returned entries must be matched to.
-   * @type {Array<string>}
-   * @memberof ProductsByIdsRequest
-   */
-  ids: Array<string>;
+	/**
+	 * Product ids returned entries must be matched to.
+	 * @type {Array<string>}
+	 * @memberof ProductsByIdsRequest
+	 */
+	ids: Array<string>;
 }
 
 /**
  * Check if a given object implements the ProductsByIdsRequest interface.
  */
 export function instanceOfProductsByIdsRequest(
-  value: object
+	value: object,
 ): value is ProductsByIdsRequest {
-  if (!("ids" in value) || value["ids"] === undefined) return false;
-  return true;
+	if (!("ids" in value) || value["ids"] === undefined) return false;
+	return true;
 }
 
 export function ProductsByIdsRequestFromJSON(json: any): ProductsByIdsRequest {
-  return ProductsByIdsRequestFromJSONTyped(json, false);
+	return ProductsByIdsRequestFromJSONTyped(json, false);
 }
 
 export function ProductsByIdsRequestFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ProductsByIdsRequest {
-  if (json == null) {
-    return json;
-  }
-  return {
-    ids: json["ids"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		ids: json["ids"],
+	};
 }
 
 export function ProductsByIdsRequestToJSON(json: any): ProductsByIdsRequest {
-  return ProductsByIdsRequestToJSONTyped(json, false);
+	return ProductsByIdsRequestToJSONTyped(json, false);
 }
 
 export function ProductsByIdsRequestToJSONTyped(
-  value?: ProductsByIdsRequest | null,
-  ignoreDiscriminator: boolean = false
+	value?: ProductsByIdsRequest | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    ids: value["ids"],
-  };
+	return {
+		ids: value["ids"],
+	};
 }

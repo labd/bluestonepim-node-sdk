@@ -1,0 +1,10 @@
+allowBuilds:
+  esbuild: false # postinstall not necessary for functionality, see https://github.com/evanw/esbuild/issues/4085
+  "@openapitools/openapi-generator-cli": false # JAR is downloaded lazily on first sdk:generate invocation
+  "@nestjs/core": false # transitive of openapi-generator-cli; postinstall only prints a sponsorship message
+minimumReleaseAge: 10080 # 7 days
+overrides:
+  # Vitest 4 declares `vite: ^6.0.0 || ^7.0.0 || ^8.0.0`, but pnpm picks vite 6.0.1
+  # which is incompatible with vitest 4's ModuleRunner usage. Force a vite version
+  # that vitest 4 actually works with.
+  vite: ^7.0.0

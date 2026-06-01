@@ -19,58 +19,58 @@ import { mapValues } from "../runtime";
  * @interface CursorQuery
  */
 export interface CursorQuery {
-  /**
-   *
-   * @type {string}
-   * @memberof CursorQuery
-   */
-  cursor?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof CursorQuery
-   */
-  limit?: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CursorQuery
+	 */
+	cursor?: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof CursorQuery
+	 */
+	limit?: number;
 }
 
 /**
  * Check if a given object implements the CursorQuery interface.
  */
 export function instanceOfCursorQuery(value: object): value is CursorQuery {
-  return true;
+	return true;
 }
 
 export function CursorQueryFromJSON(json: any): CursorQuery {
-  return CursorQueryFromJSONTyped(json, false);
+	return CursorQueryFromJSONTyped(json, false);
 }
 
 export function CursorQueryFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): CursorQuery {
-  if (json == null) {
-    return json;
-  }
-  return {
-    cursor: json["cursor"] == null ? undefined : json["cursor"],
-    limit: json["limit"] == null ? undefined : json["limit"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		cursor: json["cursor"] == null ? undefined : json["cursor"],
+		limit: json["limit"] == null ? undefined : json["limit"],
+	};
 }
 
 export function CursorQueryToJSON(json: any): CursorQuery {
-  return CursorQueryToJSONTyped(json, false);
+	return CursorQueryToJSONTyped(json, false);
 }
 
 export function CursorQueryToJSONTyped(
-  value?: CursorQuery | null,
-  ignoreDiscriminator: boolean = false
+	value?: CursorQuery | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    cursor: value["cursor"],
-    limit: value["limit"],
-  };
+	return {
+		cursor: value["cursor"],
+		limit: value["limit"],
+	};
 }

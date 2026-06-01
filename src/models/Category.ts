@@ -15,24 +15,24 @@
 import { mapValues } from "../runtime";
 import type { Attribute } from "./Attribute";
 import {
-  AttributeFromJSON,
-  AttributeFromJSONTyped,
-  AttributeToJSON,
-  AttributeToJSONTyped,
+	AttributeFromJSON,
+	AttributeFromJSONTyped,
+	AttributeToJSON,
+	AttributeToJSONTyped,
 } from "./Attribute";
 import type { CategoryMediaAsset } from "./CategoryMediaAsset";
 import {
-  CategoryMediaAssetFromJSON,
-  CategoryMediaAssetFromJSONTyped,
-  CategoryMediaAssetToJSON,
-  CategoryMediaAssetToJSONTyped,
+	CategoryMediaAssetFromJSON,
+	CategoryMediaAssetFromJSONTyped,
+	CategoryMediaAssetToJSON,
+	CategoryMediaAssetToJSONTyped,
 } from "./CategoryMediaAsset";
 import type { MetaData } from "./MetaData";
 import {
-  MetaDataFromJSON,
-  MetaDataFromJSONTyped,
-  MetaDataToJSON,
-  MetaDataToJSONTyped,
+	MetaDataFromJSON,
+	MetaDataFromJSONTyped,
+	MetaDataToJSON,
+	MetaDataToJSONTyped,
 } from "./MetaData";
 
 /**
@@ -41,148 +41,148 @@ import {
  * @interface Category
  */
 export interface Category {
-  /**
-   * id of the category.
-   * @type {string}
-   * @memberof Category
-   */
-  id: string;
-  /**
-   * id of parent category.
-   * @type {string}
-   * @memberof Category
-   */
-  parentId?: string;
-  /**
-   * order of category in parent category.
-   * @type {number}
-   * @memberof Category
-   */
-  order?: number;
-  /**
-   * Category name.
-   * @type {string}
-   * @memberof Category
-   */
-  name: string;
-  /**
-   * Category number.
-   * @type {string}
-   * @memberof Category
-   */
-  number?: string;
-  /**
-   * Category description.
-   * @type {string}
-   * @memberof Category
-   */
-  description?: string;
-  /**
-   * Category media assets.
-   * @type {Array<CategoryMediaAsset>}
-   * @memberof Category
-   */
-  media?: Array<CategoryMediaAsset>;
-  /**
-   * Category attributes.
-   * @type {Array<Attribute>}
-   * @memberof Category
-   */
-  attributes?: Array<Attribute>;
-  /**
-   * Any metadata.
-   * @type {Array<MetaData>}
-   * @memberof Category
-   */
-  metaData?: Array<MetaData>;
-  /**
-   * A set of sub categories.
-   * @type {Array<Category>}
-   * @memberof Category
-   */
-  subCategories?: Array<Category>;
+	/**
+	 * id of the category.
+	 * @type {string}
+	 * @memberof Category
+	 */
+	id: string;
+	/**
+	 * id of parent category.
+	 * @type {string}
+	 * @memberof Category
+	 */
+	parentId?: string;
+	/**
+	 * order of category in parent category.
+	 * @type {number}
+	 * @memberof Category
+	 */
+	order?: number;
+	/**
+	 * Category name.
+	 * @type {string}
+	 * @memberof Category
+	 */
+	name: string;
+	/**
+	 * Category number.
+	 * @type {string}
+	 * @memberof Category
+	 */
+	number?: string;
+	/**
+	 * Category description.
+	 * @type {string}
+	 * @memberof Category
+	 */
+	description?: string;
+	/**
+	 * Category media assets.
+	 * @type {Array<CategoryMediaAsset>}
+	 * @memberof Category
+	 */
+	media?: Array<CategoryMediaAsset>;
+	/**
+	 * Category attributes.
+	 * @type {Array<Attribute>}
+	 * @memberof Category
+	 */
+	attributes?: Array<Attribute>;
+	/**
+	 * Any metadata.
+	 * @type {Array<MetaData>}
+	 * @memberof Category
+	 */
+	metaData?: Array<MetaData>;
+	/**
+	 * A set of sub categories.
+	 * @type {Array<Category>}
+	 * @memberof Category
+	 */
+	subCategories?: Array<Category>;
 }
 
 /**
  * Check if a given object implements the Category interface.
  */
 export function instanceOfCategory(value: object): value is Category {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("name" in value) || value["name"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("name" in value) || value["name"] === undefined) return false;
+	return true;
 }
 
 export function CategoryFromJSON(json: any): Category {
-  return CategoryFromJSONTyped(json, false);
+	return CategoryFromJSONTyped(json, false);
 }
 
 export function CategoryFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): Category {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    parentId: json["parentId"] == null ? undefined : json["parentId"],
-    order: json["order"] == null ? undefined : json["order"],
-    name: json["name"],
-    number: json["number"] == null ? undefined : json["number"],
-    description: json["description"] == null ? undefined : json["description"],
-    media:
-      json["media"] == null
-        ? undefined
-        : (json["media"] as Array<any>).map(CategoryMediaAssetFromJSON),
-    attributes:
-      json["attributes"] == null
-        ? undefined
-        : (json["attributes"] as Array<any>).map(AttributeFromJSON),
-    metaData:
-      json["metaData"] == null
-        ? undefined
-        : (json["metaData"] as Array<any>).map(MetaDataFromJSON),
-    subCategories:
-      json["subCategories"] == null
-        ? undefined
-        : (json["subCategories"] as Array<any>).map(CategoryFromJSON),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		parentId: json["parentId"] == null ? undefined : json["parentId"],
+		order: json["order"] == null ? undefined : json["order"],
+		name: json["name"],
+		number: json["number"] == null ? undefined : json["number"],
+		description: json["description"] == null ? undefined : json["description"],
+		media:
+			json["media"] == null
+				? undefined
+				: (json["media"] as Array<any>).map(CategoryMediaAssetFromJSON),
+		attributes:
+			json["attributes"] == null
+				? undefined
+				: (json["attributes"] as Array<any>).map(AttributeFromJSON),
+		metaData:
+			json["metaData"] == null
+				? undefined
+				: (json["metaData"] as Array<any>).map(MetaDataFromJSON),
+		subCategories:
+			json["subCategories"] == null
+				? undefined
+				: (json["subCategories"] as Array<any>).map(CategoryFromJSON),
+	};
 }
 
 export function CategoryToJSON(json: any): Category {
-  return CategoryToJSONTyped(json, false);
+	return CategoryToJSONTyped(json, false);
 }
 
 export function CategoryToJSONTyped(
-  value?: Category | null,
-  ignoreDiscriminator: boolean = false
+	value?: Category | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    parentId: value["parentId"],
-    order: value["order"],
-    name: value["name"],
-    number: value["number"],
-    description: value["description"],
-    media:
-      value["media"] == null
-        ? undefined
-        : (value["media"] as Array<any>).map(CategoryMediaAssetToJSON),
-    attributes:
-      value["attributes"] == null
-        ? undefined
-        : (value["attributes"] as Array<any>).map(AttributeToJSON),
-    metaData:
-      value["metaData"] == null
-        ? undefined
-        : (value["metaData"] as Array<any>).map(MetaDataToJSON),
-    subCategories:
-      value["subCategories"] == null
-        ? undefined
-        : (value["subCategories"] as Array<any>).map(CategoryToJSON),
-  };
+	return {
+		id: value["id"],
+		parentId: value["parentId"],
+		order: value["order"],
+		name: value["name"],
+		number: value["number"],
+		description: value["description"],
+		media:
+			value["media"] == null
+				? undefined
+				: (value["media"] as Array<any>).map(CategoryMediaAssetToJSON),
+		attributes:
+			value["attributes"] == null
+				? undefined
+				: (value["attributes"] as Array<any>).map(AttributeToJSON),
+		metaData:
+			value["metaData"] == null
+				? undefined
+				: (value["metaData"] as Array<any>).map(MetaDataToJSON),
+		subCategories:
+			value["subCategories"] == null
+				? undefined
+				: (value["subCategories"] as Array<any>).map(CategoryToJSON),
+	};
 }

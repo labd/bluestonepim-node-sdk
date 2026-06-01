@@ -19,71 +19,71 @@ import { mapValues } from "../runtime";
  * @interface EntitiesPapiError
  */
 export interface EntitiesPapiError {
-  /**
-   *
-   * @type {number}
-   * @memberof EntitiesPapiError
-   */
-  status: number;
-  /**
-   *
-   * @type {string}
-   * @memberof EntitiesPapiError
-   */
-  message: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof EntitiesPapiError
-   */
-  entityIds: Array<string>;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof EntitiesPapiError
+	 */
+	status: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof EntitiesPapiError
+	 */
+	message: string;
+	/**
+	 *
+	 * @type {Array<string>}
+	 * @memberof EntitiesPapiError
+	 */
+	entityIds: Array<string>;
 }
 
 /**
  * Check if a given object implements the EntitiesPapiError interface.
  */
 export function instanceOfEntitiesPapiError(
-  value: object
+	value: object,
 ): value is EntitiesPapiError {
-  if (!("status" in value) || value["status"] === undefined) return false;
-  if (!("message" in value) || value["message"] === undefined) return false;
-  if (!("entityIds" in value) || value["entityIds"] === undefined) return false;
-  return true;
+	if (!("status" in value) || value["status"] === undefined) return false;
+	if (!("message" in value) || value["message"] === undefined) return false;
+	if (!("entityIds" in value) || value["entityIds"] === undefined) return false;
+	return true;
 }
 
 export function EntitiesPapiErrorFromJSON(json: any): EntitiesPapiError {
-  return EntitiesPapiErrorFromJSONTyped(json, false);
+	return EntitiesPapiErrorFromJSONTyped(json, false);
 }
 
 export function EntitiesPapiErrorFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): EntitiesPapiError {
-  if (json == null) {
-    return json;
-  }
-  return {
-    status: json["status"],
-    message: json["message"],
-    entityIds: json["entityIds"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		status: json["status"],
+		message: json["message"],
+		entityIds: json["entityIds"],
+	};
 }
 
 export function EntitiesPapiErrorToJSON(json: any): EntitiesPapiError {
-  return EntitiesPapiErrorToJSONTyped(json, false);
+	return EntitiesPapiErrorToJSONTyped(json, false);
 }
 
 export function EntitiesPapiErrorToJSONTyped(
-  value?: EntitiesPapiError | null,
-  ignoreDiscriminator: boolean = false
+	value?: EntitiesPapiError | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    status: value["status"],
-    message: value["message"],
-    entityIds: value["entityIds"],
-  };
+	return {
+		status: value["status"],
+		message: value["message"],
+		entityIds: value["entityIds"],
+	};
 }

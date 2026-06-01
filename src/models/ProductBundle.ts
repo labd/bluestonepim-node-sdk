@@ -19,60 +19,60 @@ import { mapValues } from "../runtime";
  * @interface ProductBundle
  */
 export interface ProductBundle {
-  /**
-   *
-   * @type {string}
-   * @memberof ProductBundle
-   */
-  productId: string;
-  /**
-   *
-   * @type {number}
-   * @memberof ProductBundle
-   */
-  quantity: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ProductBundle
+	 */
+	productId: string;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof ProductBundle
+	 */
+	quantity: number;
 }
 
 /**
  * Check if a given object implements the ProductBundle interface.
  */
 export function instanceOfProductBundle(value: object): value is ProductBundle {
-  if (!("productId" in value) || value["productId"] === undefined) return false;
-  if (!("quantity" in value) || value["quantity"] === undefined) return false;
-  return true;
+	if (!("productId" in value) || value["productId"] === undefined) return false;
+	if (!("quantity" in value) || value["quantity"] === undefined) return false;
+	return true;
 }
 
 export function ProductBundleFromJSON(json: any): ProductBundle {
-  return ProductBundleFromJSONTyped(json, false);
+	return ProductBundleFromJSONTyped(json, false);
 }
 
 export function ProductBundleFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ProductBundle {
-  if (json == null) {
-    return json;
-  }
-  return {
-    productId: json["productId"],
-    quantity: json["quantity"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		productId: json["productId"],
+		quantity: json["quantity"],
+	};
 }
 
 export function ProductBundleToJSON(json: any): ProductBundle {
-  return ProductBundleToJSONTyped(json, false);
+	return ProductBundleToJSONTyped(json, false);
 }
 
 export function ProductBundleToJSONTyped(
-  value?: ProductBundle | null,
-  ignoreDiscriminator: boolean = false
+	value?: ProductBundle | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    productId: value["productId"],
-    quantity: value["quantity"],
-  };
+	return {
+		productId: value["productId"],
+		quantity: value["quantity"],
+	};
 }

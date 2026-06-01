@@ -19,60 +19,60 @@ import { mapValues } from "../runtime";
  * @interface AttributeFilter
  */
 export interface AttributeFilter {
-  /**
-   * Attribute number the product must have.
-   * @type {string}
-   * @memberof AttributeFilter
-   */
-  number?: string;
-  /**
-   * Attribute value the product must have.
-   * @type {string}
-   * @memberof AttributeFilter
-   */
-  value?: string;
+	/**
+	 * Attribute number the product must have.
+	 * @type {string}
+	 * @memberof AttributeFilter
+	 */
+	number?: string;
+	/**
+	 * Attribute value the product must have.
+	 * @type {string}
+	 * @memberof AttributeFilter
+	 */
+	value?: string;
 }
 
 /**
  * Check if a given object implements the AttributeFilter interface.
  */
 export function instanceOfAttributeFilter(
-  value: object
+	value: object,
 ): value is AttributeFilter {
-  return true;
+	return true;
 }
 
 export function AttributeFilterFromJSON(json: any): AttributeFilter {
-  return AttributeFilterFromJSONTyped(json, false);
+	return AttributeFilterFromJSONTyped(json, false);
 }
 
 export function AttributeFilterFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): AttributeFilter {
-  if (json == null) {
-    return json;
-  }
-  return {
-    number: json["number"] == null ? undefined : json["number"],
-    value: json["value"] == null ? undefined : json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		number: json["number"] == null ? undefined : json["number"],
+		value: json["value"] == null ? undefined : json["value"],
+	};
 }
 
 export function AttributeFilterToJSON(json: any): AttributeFilter {
-  return AttributeFilterToJSONTyped(json, false);
+	return AttributeFilterToJSONTyped(json, false);
 }
 
 export function AttributeFilterToJSONTyped(
-  value?: AttributeFilter | null,
-  ignoreDiscriminator: boolean = false
+	value?: AttributeFilter | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    number: value["number"],
-    value: value["value"],
-  };
+	return {
+		number: value["number"],
+		value: value["value"],
+	};
 }

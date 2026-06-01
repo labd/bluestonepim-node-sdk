@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { RelationDirection } from "./RelationDirection";
 import {
-  RelationDirectionFromJSON,
-  RelationDirectionFromJSONTyped,
-  RelationDirectionToJSON,
-  RelationDirectionToJSONTyped,
+	RelationDirectionFromJSON,
+	RelationDirectionFromJSONTyped,
+	RelationDirectionToJSON,
+	RelationDirectionToJSONTyped,
 } from "./RelationDirection";
 
 /**
@@ -27,96 +27,96 @@ import {
  * @interface ProductRelation
  */
 export interface ProductRelation {
-  /**
-   *
-   * @type {string}
-   * @memberof ProductRelation
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ProductRelation
-   */
-  name: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ProductRelation
-   */
-  number?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ProductRelation
-   */
-  productId: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof ProductRelation
-   */
-  reverse?: boolean;
-  /**
-   *
-   * @type {RelationDirection}
-   * @memberof ProductRelation
-   */
-  direction: RelationDirection;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ProductRelation
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ProductRelation
+	 */
+	name: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ProductRelation
+	 */
+	number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ProductRelation
+	 */
+	productId: string;
+	/**
+	 *
+	 * @type {boolean}
+	 * @memberof ProductRelation
+	 */
+	reverse?: boolean;
+	/**
+	 *
+	 * @type {RelationDirection}
+	 * @memberof ProductRelation
+	 */
+	direction: RelationDirection;
 }
 
 /**
  * Check if a given object implements the ProductRelation interface.
  */
 export function instanceOfProductRelation(
-  value: object
+	value: object,
 ): value is ProductRelation {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  if (!("name" in value) || value["name"] === undefined) return false;
-  if (!("productId" in value) || value["productId"] === undefined) return false;
-  if (!("direction" in value) || value["direction"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	if (!("name" in value) || value["name"] === undefined) return false;
+	if (!("productId" in value) || value["productId"] === undefined) return false;
+	if (!("direction" in value) || value["direction"] === undefined) return false;
+	return true;
 }
 
 export function ProductRelationFromJSON(json: any): ProductRelation {
-  return ProductRelationFromJSONTyped(json, false);
+	return ProductRelationFromJSONTyped(json, false);
 }
 
 export function ProductRelationFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ProductRelation {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"],
-    number: json["number"] == null ? undefined : json["number"],
-    productId: json["productId"],
-    reverse: json["reverse"] == null ? undefined : json["reverse"],
-    direction: RelationDirectionFromJSON(json["direction"]),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"],
+		number: json["number"] == null ? undefined : json["number"],
+		productId: json["productId"],
+		reverse: json["reverse"] == null ? undefined : json["reverse"],
+		direction: RelationDirectionFromJSON(json["direction"]),
+	};
 }
 
 export function ProductRelationToJSON(json: any): ProductRelation {
-  return ProductRelationToJSONTyped(json, false);
+	return ProductRelationToJSONTyped(json, false);
 }
 
 export function ProductRelationToJSONTyped(
-  value?: ProductRelation | null,
-  ignoreDiscriminator: boolean = false
+	value?: ProductRelation | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    number: value["number"],
-    productId: value["productId"],
-    reverse: value["reverse"],
-    direction: RelationDirectionToJSON(value["direction"]),
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		number: value["number"],
+		productId: value["productId"],
+		reverse: value["reverse"],
+		direction: RelationDirectionToJSON(value["direction"]),
+	};
 }

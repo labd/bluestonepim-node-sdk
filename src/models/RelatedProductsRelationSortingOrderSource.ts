@@ -17,56 +17,56 @@
  * @export
  */
 export const RelatedProductsRelationSortingOrderSource = {
-  RelationDefinition: "RELATION_DEFINITION",
-  Product: "PRODUCT",
+	RelationDefinition: "RELATION_DEFINITION",
+	Product: "PRODUCT",
 } as const;
 export type RelatedProductsRelationSortingOrderSource =
-  (typeof RelatedProductsRelationSortingOrderSource)[keyof typeof RelatedProductsRelationSortingOrderSource];
+	(typeof RelatedProductsRelationSortingOrderSource)[keyof typeof RelatedProductsRelationSortingOrderSource];
 
 export function instanceOfRelatedProductsRelationSortingOrderSource(
-  value: any
+	value: any,
 ): boolean {
-  for (const key in RelatedProductsRelationSortingOrderSource) {
-    if (
-      Object.prototype.hasOwnProperty.call(
-        RelatedProductsRelationSortingOrderSource,
-        key
-      )
-    ) {
-      if (
-        RelatedProductsRelationSortingOrderSource[
-          key as keyof typeof RelatedProductsRelationSortingOrderSource
-        ] === value
-      ) {
-        return true;
-      }
-    }
-  }
-  return false;
+	for (const key in RelatedProductsRelationSortingOrderSource) {
+		if (
+			Object.prototype.hasOwnProperty.call(
+				RelatedProductsRelationSortingOrderSource,
+				key,
+			)
+		) {
+			if (
+				RelatedProductsRelationSortingOrderSource[
+					key as keyof typeof RelatedProductsRelationSortingOrderSource
+				] === value
+			) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 export function RelatedProductsRelationSortingOrderSourceFromJSON(
-  json: any
+	json: any,
 ): RelatedProductsRelationSortingOrderSource {
-  return RelatedProductsRelationSortingOrderSourceFromJSONTyped(json, false);
+	return RelatedProductsRelationSortingOrderSourceFromJSONTyped(json, false);
 }
 
 export function RelatedProductsRelationSortingOrderSourceFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): RelatedProductsRelationSortingOrderSource {
-  return json as RelatedProductsRelationSortingOrderSource;
+	return json as RelatedProductsRelationSortingOrderSource;
 }
 
 export function RelatedProductsRelationSortingOrderSourceToJSON(
-  value?: RelatedProductsRelationSortingOrderSource | null
+	value?: RelatedProductsRelationSortingOrderSource | null,
 ): any {
-  return value as any;
+	return value as any;
 }
 
 export function RelatedProductsRelationSortingOrderSourceToJSONTyped(
-  value: any,
-  ignoreDiscriminator: boolean
+	value: any,
+	ignoreDiscriminator: boolean,
 ): RelatedProductsRelationSortingOrderSource {
-  return value as RelatedProductsRelationSortingOrderSource;
+	return value as RelatedProductsRelationSortingOrderSource;
 }

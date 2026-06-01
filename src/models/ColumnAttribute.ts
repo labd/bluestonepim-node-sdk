@@ -19,69 +19,69 @@ import { mapValues } from "../runtime";
  * @interface ColumnAttribute
  */
 export interface ColumnAttribute {
-  /**
-   *
-   * @type {string}
-   * @memberof ColumnAttribute
-   */
-  id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ColumnAttribute
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ColumnAttribute
-   */
-  value?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ColumnAttribute
+	 */
+	id: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ColumnAttribute
+	 */
+	name?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof ColumnAttribute
+	 */
+	value?: string;
 }
 
 /**
  * Check if a given object implements the ColumnAttribute interface.
  */
 export function instanceOfColumnAttribute(
-  value: object
+	value: object,
 ): value is ColumnAttribute {
-  if (!("id" in value) || value["id"] === undefined) return false;
-  return true;
+	if (!("id" in value) || value["id"] === undefined) return false;
+	return true;
 }
 
 export function ColumnAttributeFromJSON(json: any): ColumnAttribute {
-  return ColumnAttributeFromJSONTyped(json, false);
+	return ColumnAttributeFromJSONTyped(json, false);
 }
 
 export function ColumnAttributeFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ColumnAttribute {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"],
-    name: json["name"] == null ? undefined : json["name"],
-    value: json["value"] == null ? undefined : json["value"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"],
+		name: json["name"] == null ? undefined : json["name"],
+		value: json["value"] == null ? undefined : json["value"],
+	};
 }
 
 export function ColumnAttributeToJSON(json: any): ColumnAttribute {
-  return ColumnAttributeToJSONTyped(json, false);
+	return ColumnAttributeToJSONTyped(json, false);
 }
 
 export function ColumnAttributeToJSONTyped(
-  value?: ColumnAttribute | null,
-  ignoreDiscriminator: boolean = false
+	value?: ColumnAttribute | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    name: value["name"],
-    value: value["value"],
-  };
+	return {
+		id: value["id"],
+		name: value["name"],
+		value: value["value"],
+	};
 }

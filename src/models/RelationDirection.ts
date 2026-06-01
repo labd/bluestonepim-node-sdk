@@ -17,41 +17,41 @@
  * @export
  */
 export const RelationDirection = {
-  OneWay: "ONE_WAY",
-  TwoWay: "TWO_WAY",
+	OneWay: "ONE_WAY",
+	TwoWay: "TWO_WAY",
 } as const;
 export type RelationDirection =
-  (typeof RelationDirection)[keyof typeof RelationDirection];
+	(typeof RelationDirection)[keyof typeof RelationDirection];
 
 export function instanceOfRelationDirection(value: any): boolean {
-  for (const key in RelationDirection) {
-    if (Object.prototype.hasOwnProperty.call(RelationDirection, key)) {
-      if (RelationDirection[key as keyof typeof RelationDirection] === value) {
-        return true;
-      }
-    }
-  }
-  return false;
+	for (const key in RelationDirection) {
+		if (Object.prototype.hasOwnProperty.call(RelationDirection, key)) {
+			if (RelationDirection[key as keyof typeof RelationDirection] === value) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 export function RelationDirectionFromJSON(json: any): RelationDirection {
-  return RelationDirectionFromJSONTyped(json, false);
+	return RelationDirectionFromJSONTyped(json, false);
 }
 
 export function RelationDirectionFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): RelationDirection {
-  return json as RelationDirection;
+	return json as RelationDirection;
 }
 
 export function RelationDirectionToJSON(value?: RelationDirection | null): any {
-  return value as any;
+	return value as any;
 }
 
 export function RelationDirectionToJSONTyped(
-  value: any,
-  ignoreDiscriminator: boolean
+	value: any,
+	ignoreDiscriminator: boolean,
 ): RelationDirection {
-  return value as RelationDirection;
+	return value as RelationDirection;
 }

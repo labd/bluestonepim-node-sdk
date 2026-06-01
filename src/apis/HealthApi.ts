@@ -18,35 +18,35 @@ import * as runtime from "../runtime";
  *
  */
 export class HealthApi extends runtime.BaseAPI {
-  /**
-   * A Health check for PAPI service.
-   */
-  async getHealthRaw(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<void>> {
-    const queryParameters: any = {};
+	/**
+	 * A Health check for PAPI service.
+	 */
+	async getHealthRaw(
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<void>> {
+		const queryParameters: any = {};
 
-    const headerParameters: runtime.HTTPHeaders = {};
+		const headerParameters: runtime.HTTPHeaders = {};
 
-    const response = await this.request(
-      {
-        path: `/health`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+		const response = await this.request(
+			{
+				path: `/health`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
 
-    return new runtime.VoidApiResponse(response);
-  }
+		return new runtime.VoidApiResponse(response);
+	}
 
-  /**
-   * A Health check for PAPI service.
-   */
-  async getHealth(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<void> {
-    await this.getHealthRaw(initOverrides);
-  }
+	/**
+	 * A Health check for PAPI service.
+	 */
+	async getHealth(
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<void> {
+		await this.getHealthRaw(initOverrides);
+	}
 }

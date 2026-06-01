@@ -19,140 +19,140 @@ import { mapValues } from "../runtime";
  * @interface CategoryMediaAsset
  */
 export interface CategoryMediaAsset {
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  downloadUri: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  previewUri: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  name: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  description?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  fileName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  contentType: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof CategoryMediaAsset
-   */
-  labels: Array<string>;
-  /**
-   *
-   * @type {number}
-   * @memberof CategoryMediaAsset
-   */
-  createdAt?: number;
-  /**
-   *
-   * @type {number}
-   * @memberof CategoryMediaAsset
-   */
-  updatedAt?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof CategoryMediaAsset
-   */
-  number?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	id?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	downloadUri: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	previewUri: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	name: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	description?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	fileName?: string;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	contentType: string;
+	/**
+	 *
+	 * @type {Array<string>}
+	 * @memberof CategoryMediaAsset
+	 */
+	labels: Array<string>;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof CategoryMediaAsset
+	 */
+	createdAt?: number;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof CategoryMediaAsset
+	 */
+	updatedAt?: number;
+	/**
+	 *
+	 * @type {string}
+	 * @memberof CategoryMediaAsset
+	 */
+	number?: string;
 }
 
 /**
  * Check if a given object implements the CategoryMediaAsset interface.
  */
 export function instanceOfCategoryMediaAsset(
-  value: object
+	value: object,
 ): value is CategoryMediaAsset {
-  if (!("downloadUri" in value) || value["downloadUri"] === undefined)
-    return false;
-  if (!("previewUri" in value) || value["previewUri"] === undefined)
-    return false;
-  if (!("name" in value) || value["name"] === undefined) return false;
-  if (!("contentType" in value) || value["contentType"] === undefined)
-    return false;
-  if (!("labels" in value) || value["labels"] === undefined) return false;
-  return true;
+	if (!("downloadUri" in value) || value["downloadUri"] === undefined)
+		return false;
+	if (!("previewUri" in value) || value["previewUri"] === undefined)
+		return false;
+	if (!("name" in value) || value["name"] === undefined) return false;
+	if (!("contentType" in value) || value["contentType"] === undefined)
+		return false;
+	if (!("labels" in value) || value["labels"] === undefined) return false;
+	return true;
 }
 
 export function CategoryMediaAssetFromJSON(json: any): CategoryMediaAsset {
-  return CategoryMediaAssetFromJSONTyped(json, false);
+	return CategoryMediaAssetFromJSONTyped(json, false);
 }
 
 export function CategoryMediaAssetFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): CategoryMediaAsset {
-  if (json == null) {
-    return json;
-  }
-  return {
-    id: json["id"] == null ? undefined : json["id"],
-    downloadUri: json["downloadUri"],
-    previewUri: json["previewUri"],
-    name: json["name"],
-    description: json["description"] == null ? undefined : json["description"],
-    fileName: json["fileName"] == null ? undefined : json["fileName"],
-    contentType: json["contentType"],
-    labels: json["labels"],
-    createdAt: json["createdAt"] == null ? undefined : json["createdAt"],
-    updatedAt: json["updatedAt"] == null ? undefined : json["updatedAt"],
-    number: json["number"] == null ? undefined : json["number"],
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		id: json["id"] == null ? undefined : json["id"],
+		downloadUri: json["downloadUri"],
+		previewUri: json["previewUri"],
+		name: json["name"],
+		description: json["description"] == null ? undefined : json["description"],
+		fileName: json["fileName"] == null ? undefined : json["fileName"],
+		contentType: json["contentType"],
+		labels: json["labels"],
+		createdAt: json["createdAt"] == null ? undefined : json["createdAt"],
+		updatedAt: json["updatedAt"] == null ? undefined : json["updatedAt"],
+		number: json["number"] == null ? undefined : json["number"],
+	};
 }
 
 export function CategoryMediaAssetToJSON(json: any): CategoryMediaAsset {
-  return CategoryMediaAssetToJSONTyped(json, false);
+	return CategoryMediaAssetToJSONTyped(json, false);
 }
 
 export function CategoryMediaAssetToJSONTyped(
-  value?: CategoryMediaAsset | null,
-  ignoreDiscriminator: boolean = false
+	value?: CategoryMediaAsset | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    id: value["id"],
-    downloadUri: value["downloadUri"],
-    previewUri: value["previewUri"],
-    name: value["name"],
-    description: value["description"],
-    fileName: value["fileName"],
-    contentType: value["contentType"],
-    labels: value["labels"],
-    createdAt: value["createdAt"],
-    updatedAt: value["updatedAt"],
-    number: value["number"],
-  };
+	return {
+		id: value["id"],
+		downloadUri: value["downloadUri"],
+		previewUri: value["previewUri"],
+		name: value["name"],
+		description: value["description"],
+		fileName: value["fileName"],
+		contentType: value["contentType"],
+		labels: value["labels"],
+		createdAt: value["createdAt"],
+		updatedAt: value["updatedAt"],
+		number: value["number"],
+	};
 }

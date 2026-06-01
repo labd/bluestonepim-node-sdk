@@ -15,80 +15,79 @@
 import * as runtime from "../runtime";
 import type { PaginatedAttribute } from "../models/index";
 import {
-  PaginatedAttributeFromJSON,
-  PaginatedAttributeToJSON,
+	PaginatedAttributeFromJSON,
+	PaginatedAttributeToJSON,
 } from "../models/index";
 
 export interface AttributesApiGetAttributesRequest {
-  id?: string;
-  itemsOnPage?: number;
-  pageNo?: number;
-  context?: string;
+	id?: string;
+	itemsOnPage?: number;
+	pageNo?: number;
+	context?: string;
 }
 
 /**
  *
  */
 export class AttributesApi extends runtime.BaseAPI {
-  /**
-   * Describe the attributes available in the system.  <br><b>id</b> - attribute id.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getAttributesRaw(
-    requestParameters: AttributesApiGetAttributesRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<PaginatedAttribute>> {
-    const queryParameters: any = {};
+	/**
+	 * Describe the attributes available in the system.  <br><b>id</b> - attribute id.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getAttributesRaw(
+		requestParameters: AttributesApiGetAttributesRequest,
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<runtime.ApiResponse<PaginatedAttribute>> {
+		const queryParameters: any = {};
 
-    if (requestParameters["id"] != null) {
-      queryParameters["id"] = requestParameters["id"];
-    }
+		if (requestParameters["id"] != null) {
+			queryParameters["id"] = requestParameters["id"];
+		}
 
-    if (requestParameters["itemsOnPage"] != null) {
-      queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
-    }
+		if (requestParameters["itemsOnPage"] != null) {
+			queryParameters["itemsOnPage"] = requestParameters["itemsOnPage"];
+		}
 
-    if (requestParameters["pageNo"] != null) {
-      queryParameters["pageNo"] = requestParameters["pageNo"];
-    }
+		if (requestParameters["pageNo"] != null) {
+			queryParameters["pageNo"] = requestParameters["pageNo"];
+		}
 
-    const headerParameters: runtime.HTTPHeaders = {};
+		const headerParameters: runtime.HTTPHeaders = {};
 
-    if (requestParameters["context"] != null) {
-      headerParameters["context"] = String(requestParameters["context"]);
-    }
+		if (requestParameters["context"] != null) {
+			headerParameters["context"] = String(requestParameters["context"]);
+		}
 
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters["x-api-key"] = await this.configuration.apiKey(
-        "x-api-key"
-      ); // secured authentication
-    }
+		if (this.configuration && this.configuration.apiKey) {
+			headerParameters["x-api-key"] =
+				await this.configuration.apiKey("x-api-key"); // secured authentication
+		}
 
-    const response = await this.request(
-      {
-        path: `/attributes`,
-        method: "GET",
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+		const response = await this.request(
+			{
+				path: `/attributes`,
+				method: "GET",
+				headers: headerParameters,
+				query: queryParameters,
+			},
+			initOverrides,
+		);
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      PaginatedAttributeFromJSON(jsonValue)
-    );
-  }
+		return new runtime.JSONApiResponse(response, (jsonValue) =>
+			PaginatedAttributeFromJSON(jsonValue),
+		);
+	}
 
-  /**
-   * Describe the attributes available in the system.  <br><b>id</b> - attribute id.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
-   */
-  async getAttributes(
-    requestParameters: AttributesApiGetAttributesRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<PaginatedAttribute> {
-    const response = await this.getAttributesRaw(
-      requestParameters,
-      initOverrides
-    );
-    return await response.value();
-  }
+	/**
+	 * Describe the attributes available in the system.  <br><b>id</b> - attribute id.  <br><b>itemsOnPage</b> - items to be displayed on page.  <br><b>pageNo</b> - page number to display.
+	 */
+	async getAttributes(
+		requestParameters: AttributesApiGetAttributesRequest = {},
+		initOverrides?: RequestInit | runtime.InitOverrideFunction,
+	): Promise<PaginatedAttribute> {
+		const response = await this.getAttributesRaw(
+			requestParameters,
+			initOverrides,
+		);
+		return await response.value();
+	}
 }

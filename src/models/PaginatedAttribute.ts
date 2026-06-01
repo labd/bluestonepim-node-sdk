@@ -15,10 +15,10 @@
 import { mapValues } from "../runtime";
 import type { GroupedAttributeDefinition } from "./GroupedAttributeDefinition";
 import {
-  GroupedAttributeDefinitionFromJSON,
-  GroupedAttributeDefinitionFromJSONTyped,
-  GroupedAttributeDefinitionToJSON,
-  GroupedAttributeDefinitionToJSONTyped,
+	GroupedAttributeDefinitionFromJSON,
+	GroupedAttributeDefinitionFromJSONTyped,
+	GroupedAttributeDefinitionToJSON,
+	GroupedAttributeDefinitionToJSONTyped,
 } from "./GroupedAttributeDefinition";
 
 /**
@@ -27,67 +27,67 @@ import {
  * @interface PaginatedAttribute
  */
 export interface PaginatedAttribute {
-  /**
-   *
-   * @type {number}
-   * @memberof PaginatedAttribute
-   */
-  totalCount: number;
-  /**
-   *
-   * @type {Array<GroupedAttributeDefinition>}
-   * @memberof PaginatedAttribute
-   */
-  results: Array<GroupedAttributeDefinition>;
+	/**
+	 *
+	 * @type {number}
+	 * @memberof PaginatedAttribute
+	 */
+	totalCount: number;
+	/**
+	 *
+	 * @type {Array<GroupedAttributeDefinition>}
+	 * @memberof PaginatedAttribute
+	 */
+	results: Array<GroupedAttributeDefinition>;
 }
 
 /**
  * Check if a given object implements the PaginatedAttribute interface.
  */
 export function instanceOfPaginatedAttribute(
-  value: object
+	value: object,
 ): value is PaginatedAttribute {
-  if (!("totalCount" in value) || value["totalCount"] === undefined)
-    return false;
-  if (!("results" in value) || value["results"] === undefined) return false;
-  return true;
+	if (!("totalCount" in value) || value["totalCount"] === undefined)
+		return false;
+	if (!("results" in value) || value["results"] === undefined) return false;
+	return true;
 }
 
 export function PaginatedAttributeFromJSON(json: any): PaginatedAttribute {
-  return PaginatedAttributeFromJSONTyped(json, false);
+	return PaginatedAttributeFromJSONTyped(json, false);
 }
 
 export function PaginatedAttributeFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): PaginatedAttribute {
-  if (json == null) {
-    return json;
-  }
-  return {
-    totalCount: json["totalCount"],
-    results: (json["results"] as Array<any>).map(
-      GroupedAttributeDefinitionFromJSON
-    ),
-  };
+	if (json == null) {
+		return json;
+	}
+	return {
+		totalCount: json["totalCount"],
+		results: (json["results"] as Array<any>).map(
+			GroupedAttributeDefinitionFromJSON,
+		),
+	};
 }
 
 export function PaginatedAttributeToJSON(json: any): PaginatedAttribute {
-  return PaginatedAttributeToJSONTyped(json, false);
+	return PaginatedAttributeToJSONTyped(json, false);
 }
 
 export function PaginatedAttributeToJSONTyped(
-  value?: PaginatedAttribute | null,
-  ignoreDiscriminator: boolean = false
+	value?: PaginatedAttribute | null,
+	ignoreDiscriminator: boolean = false,
 ): any {
-  if (value == null) {
-    return value;
-  }
+	if (value == null) {
+		return value;
+	}
 
-  return {
-    totalCount: value["totalCount"],
-    results: (value["results"] as Array<any>).map(
-      GroupedAttributeDefinitionToJSON
-    ),
-  };
+	return {
+		totalCount: value["totalCount"],
+		results: (value["results"] as Array<any>).map(
+			GroupedAttributeDefinitionToJSON,
+		),
+	};
 }

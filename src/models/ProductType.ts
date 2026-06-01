@@ -17,42 +17,42 @@
  * @export
  */
 export const ProductType = {
-  Bundle: "BUNDLE",
-  Group: "GROUP",
-  Single: "SINGLE",
-  Variant: "VARIANT",
+	Bundle: "BUNDLE",
+	Group: "GROUP",
+	Single: "SINGLE",
+	Variant: "VARIANT",
 } as const;
 export type ProductType = (typeof ProductType)[keyof typeof ProductType];
 
 export function instanceOfProductType(value: any): boolean {
-  for (const key in ProductType) {
-    if (Object.prototype.hasOwnProperty.call(ProductType, key)) {
-      if (ProductType[key as keyof typeof ProductType] === value) {
-        return true;
-      }
-    }
-  }
-  return false;
+	for (const key in ProductType) {
+		if (Object.prototype.hasOwnProperty.call(ProductType, key)) {
+			if (ProductType[key as keyof typeof ProductType] === value) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 export function ProductTypeFromJSON(json: any): ProductType {
-  return ProductTypeFromJSONTyped(json, false);
+	return ProductTypeFromJSONTyped(json, false);
 }
 
 export function ProductTypeFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
+	json: any,
+	ignoreDiscriminator: boolean,
 ): ProductType {
-  return json as ProductType;
+	return json as ProductType;
 }
 
 export function ProductTypeToJSON(value?: ProductType | null): any {
-  return value as any;
+	return value as any;
 }
 
 export function ProductTypeToJSONTyped(
-  value: any,
-  ignoreDiscriminator: boolean
+	value: any,
+	ignoreDiscriminator: boolean,
 ): ProductType {
-  return value as ProductType;
+	return value as ProductType;
 }
