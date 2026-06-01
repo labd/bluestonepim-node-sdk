@@ -148,6 +148,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [lint, validate]
+    permissions:
+      contents: write # push version-bump commit + tag, create GitHub Release
+      issues: write # post comments on issues referenced in changelog
+      pull-requests: write # create/update the "Version Packages" PR
     steps:
       - name: Checkout repo
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
