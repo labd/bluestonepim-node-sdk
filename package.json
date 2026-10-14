@@ -38,16 +38,16 @@
 		"publish:ci": "pnpm build && pnpm changeset publish"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.15",
-		"@changesets/cli": "^2.31.0",
-		"@openapitools/openapi-generator-cli": "2.34.0",
-		"@types/node": "^22.10.2",
-		"@typescript/native-preview": "7.0.0-dev.20260519.1",
-		"@vitest/coverage-v8": "^4.1.7",
-		"knip": "^6.14.1",
+		"@biomejs/biome": "^2.5.15",
+		"@changesets/cli": "^3.0.3",
+		"@openapitools/openapi-generator-cli": "2.41.0",
+		"@types/node": "^26.6.4",
+		"@typescript/native-preview": "7.0.0-dev.20260707.2",
+		"@vitest/coverage-v8": "^5.0.3",
+		"knip": "^6.40.0",
 		"tsup": "^8.5.1",
-		"typescript": "^5.9.3",
-		"vitest": "4.1.7"
+		"typescript": "^7.0.2",
+		"vitest": "5.0.3"
 	},
 	"packageManager": "pnpm@11.4.0",
 	"engines": {
