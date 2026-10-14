@@ -1,5 +1,11 @@
 # @labdigital/bluestonepim-sdk
 
+## 0.2.0
+
+### Minor Changes
+
+- 9674b78: Build with tsdown and ship ESM only. The CommonJS build (`dist/index.cjs`) has been removed; consumers must use `import` (or `require()` of ESM on Node >= 22).
+
 ## 0.1.0
 
 ### Minor Changes
