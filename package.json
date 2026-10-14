@@ -12,20 +12,19 @@
 	"author": "Lab Digital <opensource@labdigital.nl>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/labd/bluestonepim-node-sdk"
+		"url": "git+https://github.com/labd/bluestonepim-node-sdk.git"
 	},
 	"type": "module",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
+			"default": "./dist/index.js"
 		}
 	},
+	"sideEffects": false,
 	"scripts": {
-		"build": "tsup",
+		"build": "tsdown",
 		"check": "pnpm lint && pnpm format && pnpm typecheck",
 		"format": "biome format",
 		"format:fix": "biome format --write",
@@ -45,7 +44,8 @@
 		"@typescript/native-preview": "7.0.0-dev.20260707.2",
 		"@vitest/coverage-v8": "^5.0.3",
 		"knip": "^6.40.0",
-		"tsup": "^8.5.1",
+		"publint": "^0.3.25",
+		"tsdown": "^0.23.0",
 		"typescript": "^7.0.2",
 		"vitest": "5.0.3"
 	},
