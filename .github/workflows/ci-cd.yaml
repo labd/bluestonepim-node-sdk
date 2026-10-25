@@ -164,6 +164,9 @@ jobs:
         with:
           node-version-file: package.json
           cache: pnpm
+          # changesets/action v2 no longer writes an .npmrc from NPM_TOKEN;
+          # setup-node writes one that reads NODE_AUTH_TOKEN instead.
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
