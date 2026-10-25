@@ -4,7 +4,6 @@ allowBuilds:
   "@nestjs/core": false # transitive of openapi-generator-cli; postinstall only prints a sponsorship message
 minimumReleaseAge: 10080 # 7 days
 overrides:
-  # Vitest 4 declares `vite: ^6.0.0 || ^7.0.0 || ^8.0.0`, but pnpm picks vite 6.0.1
-  # which is incompatible with vitest 4's ModuleRunner usage. Force a vite version
-  # that vitest 4 actually works with.
-  vite: ^7.0.0
+  # Keep vite on a 7.x release that vitest works with, and at or above the
+  # version that fixes the known security advisories (>= 7.3.7).
+  vite: ^7.3.7
