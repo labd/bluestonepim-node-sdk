@@ -12,9 +12,9 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type { PublishInfo } from "../models/index";
 import { PublishInfoFromJSON, PublishInfoToJSON } from "../models/index";
+import * as runtime from "../runtime";
 
 export interface SyncsApiGetPublishInfoRequest {
 	id: string;

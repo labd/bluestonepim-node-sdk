@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type {
 	CursorPageProduct,
 	CursorQuery,
@@ -36,14 +35,15 @@ import {
 	PapiErrorFromJSON,
 	PapiErrorToJSON,
 	ProductFromJSON,
-	ProductToJSON,
 	ProductResultsFromJSON,
 	ProductResultsToJSON,
 	ProductsByIdsRequestFromJSON,
 	ProductsByIdsRequestToJSON,
 	ProductsByNumbersRequestFromJSON,
 	ProductsByNumbersRequestToJSON,
+	ProductToJSON,
 } from "../models/index";
+import * as runtime from "../runtime";
 
 export interface ProductsApiFindProductsRequest {
 	filteringCriteriaRequest: FilteringCriteriaRequest;

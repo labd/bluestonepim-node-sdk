@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from "../runtime";
-import type { StatusPapiError } from "./StatusPapiError";
-import {
-	StatusPapiErrorFromJSON,
-	StatusPapiErrorFromJSONTyped,
-	StatusPapiErrorToJSON,
-	StatusPapiErrorToJSONTyped,
-} from "./StatusPapiError";
 import type { EntitiesPapiError } from "./EntitiesPapiError";
 import {
 	EntitiesPapiErrorFromJSON,
@@ -34,6 +27,13 @@ import {
 	EntityPapiErrorToJSON,
 	EntityPapiErrorToJSONTyped,
 } from "./EntityPapiError";
+import type { StatusPapiError } from "./StatusPapiError";
+import {
+	StatusPapiErrorFromJSON,
+	StatusPapiErrorFromJSONTyped,
+	StatusPapiErrorToJSON,
+	StatusPapiErrorToJSONTyped,
+} from "./StatusPapiError";
 
 /**
  *

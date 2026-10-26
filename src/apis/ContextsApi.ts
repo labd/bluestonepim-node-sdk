@@ -12,12 +12,12 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type { SegmentContextRequest } from "../models/index";
 import {
 	SegmentContextRequestFromJSON,
 	SegmentContextRequestToJSON,
 } from "../models/index";
+import * as runtime from "../runtime";
 
 /**
  *

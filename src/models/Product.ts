@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from "../runtime";
-import type { RelatedProductsRelationSortingOrderSource } from "./RelatedProductsRelationSortingOrderSource";
-import {
-	RelatedProductsRelationSortingOrderSourceFromJSON,
-	RelatedProductsRelationSortingOrderSourceFromJSONTyped,
-	RelatedProductsRelationSortingOrderSourceToJSON,
-	RelatedProductsRelationSortingOrderSourceToJSONTyped,
-} from "./RelatedProductsRelationSortingOrderSource";
 import type { Attribute } from "./Attribute";
 import {
 	AttributeFromJSON,
@@ -41,13 +34,6 @@ import {
 	ProductBundleToJSON,
 	ProductBundleToJSONTyped,
 } from "./ProductBundle";
-import type { ProductType } from "./ProductType";
-import {
-	ProductTypeFromJSON,
-	ProductTypeFromJSONTyped,
-	ProductTypeToJSON,
-	ProductTypeToJSONTyped,
-} from "./ProductType";
 import type { ProductMediaAsset } from "./ProductMediaAsset";
 import {
 	ProductMediaAssetFromJSON,
@@ -62,6 +48,20 @@ import {
 	ProductRelationToJSON,
 	ProductRelationToJSONTyped,
 } from "./ProductRelation";
+import type { ProductType } from "./ProductType";
+import {
+	ProductTypeFromJSON,
+	ProductTypeFromJSONTyped,
+	ProductTypeToJSON,
+	ProductTypeToJSONTyped,
+} from "./ProductType";
+import type { RelatedProductsRelationSortingOrderSource } from "./RelatedProductsRelationSortingOrderSource";
+import {
+	RelatedProductsRelationSortingOrderSourceFromJSON,
+	RelatedProductsRelationSortingOrderSourceFromJSONTyped,
+	RelatedProductsRelationSortingOrderSourceToJSON,
+	RelatedProductsRelationSortingOrderSourceToJSONTyped,
+} from "./RelatedProductsRelationSortingOrderSource";
 
 /**
  *

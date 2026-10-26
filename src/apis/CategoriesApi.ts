@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type {
 	Category,
 	PaginatedCategory,
@@ -35,6 +34,7 @@ import {
 	SimplifiedCategoryFromJSON,
 	SimplifiedCategoryToJSON,
 } from "../models/index";
+import * as runtime from "../runtime";
 
 export interface CategoriesApiGetAncestorsRequest {
 	categoryId: string;
