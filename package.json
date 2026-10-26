@@ -35,7 +35,8 @@
 		"typecheck": "tsc --noEmit",
 		"sdk:generate": "openapi-generator-cli generate -i https://docs.api.bluestonepim.com/openapi/665580c80a124b001f16a96c -g typescript-fetch -o src/ --additional-properties=prefixParameterInterfaces=true && pnpm lint:fix",
 		"publish:ci": "pnpm build && pnpm changeset publish",
-		"publish:version": "pnpm changeset version && pnpm format:fix"
+		"publish:version": "pnpm changeset version && pnpm format:fix",
+		"lint:package": "publint --strict"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.15",
