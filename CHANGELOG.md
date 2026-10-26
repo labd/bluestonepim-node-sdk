@@ -1,5 +1,15 @@
 # @labdigital/bluestonepim-sdk
 
+## 0.2.0
+
+### Minor Changes
+
+- 9674b78: Build with tsdown and ship ESM only. The CommonJS build (`dist/index.cjs`) has been removed; consumers must use `import` (or `require()` of ESM on Node >= 22).
+
+### Patch Changes
+
+- 49b79dd: Resolve security advisories in development dependencies (vite 7.3.7, esbuild 0.28.2, shell-quote 1.12.0).
+
 ## 0.1.0
 
 ### Minor Changes
