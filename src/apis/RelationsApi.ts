@@ -12,12 +12,12 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type { RelationDefinition } from "../models/index";
 import {
 	RelationDefinitionFromJSON,
 	RelationDefinitionToJSON,
 } from "../models/index";
+import * as runtime from "../runtime";
 
 export interface RelationsApiGetRelationsRequest {
 	context?: string;

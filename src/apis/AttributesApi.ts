@@ -12,12 +12,12 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type { PaginatedAttribute } from "../models/index";
 import {
 	PaginatedAttributeFromJSON,
 	PaginatedAttributeToJSON,
 } from "../models/index";
+import * as runtime from "../runtime";
 
 export interface AttributesApiGetAttributesRequest {
 	id?: string;

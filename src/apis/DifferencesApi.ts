@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import * as runtime from "../runtime";
 import type { DiffResponse, DiffType } from "../models/index";
 import {
 	DiffResponseFromJSON,
@@ -20,6 +19,7 @@ import {
 	DiffTypeFromJSON,
 	DiffTypeToJSON,
 } from "../models/index";
+import * as runtime from "../runtime";
 
 export interface DifferencesApiGetAttributeDifferencesRequest {
 	diffType?: DiffType;
