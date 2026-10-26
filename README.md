@@ -1,5 +1,8 @@
 # BluestonePIM SDK
 
+[![npm](https://img.shields.io/npm/v/@labdigital/bluestonepim-sdk)](https://www.npmjs.com/package/@labdigital/bluestonepim-sdk)
+[![CI](https://github.com/labd/bluestonepim-node-sdk/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/labd/bluestonepim-node-sdk/actions/workflows/ci-cd.yaml)
+
 This SDK provides methods to interact with the BluestonePIM API. It includes methods to retrieve differences in products
 and relations during synchronization operations.
 
