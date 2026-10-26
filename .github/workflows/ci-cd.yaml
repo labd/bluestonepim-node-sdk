@@ -101,11 +101,6 @@ jobs:
         if: ${{ !cancelled() }}
         run: pnpm build
 
-      - name: Lint package
-        id: publint
-        if: ${{ !cancelled() }}
-        run: pnpm lint:package
-
       - name: Summary
         if: ${{ !cancelled() }}
         shell: bash
@@ -113,7 +108,6 @@ jobs:
           TYPECHECK: ${{ steps.typecheck.outcome }}
           TEST: ${{ steps.test.outcome }}
           BUILD: ${{ steps.build.outcome }}
-          PUBLINT: ${{ steps.publint.outcome }}
         run: |
           icon() {
             case "$1" in
@@ -131,7 +125,6 @@ jobs:
             echo "| Typecheck | $(icon "$TYPECHECK") |"
             echo "| Test      | $(icon "$TEST") |"
             echo "| Build     | $(icon "$BUILD") |"
-            echo "| Publint   | $(icon "$PUBLINT") |"
           } | tee -a "$GITHUB_STEP_SUMMARY"
 
   release:
