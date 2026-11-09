@@ -40,7 +40,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.15",
 		"@changesets/cli": "^3.0.3",
-		"@openapitools/openapi-generator-cli": "2.41.0",
+		"@openapitools/openapi-generator-cli": "2.42.0",
 		"@types/node": "^26.6.5",
 		"@vitest/coverage-v8": "^5.0.5",
 		"knip": "^6.42.0",
